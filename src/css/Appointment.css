@@ -1,0 +1,1725 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap");
+
+
+/* =====================================================================
+   TOKENS  (button colours live here - change in one place)
+===================================================================== */
+
+:root {
+  --ap-font: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+  --ap-ink: #1f1a17;
+  --ap-ink-soft: #4a413b;
+  --ap-muted: #75675e;
+
+  --ap-field: #f7f2ee;
+  --ap-line: #d3c6bc;
+  --ap-line-strong: #b5a396;
+  --ap-line-soft: #eee4dc;
+
+  --ap-coral: #c94f38;          /* Proceed to Payment, selected date */
+  --ap-coral-dark: #ad3f2a;
+  --ap-coral-soft: #fdeee9;
+
+  /* CHANGED: SEND OTP / VERIFY ab theme coral se match karte hain */
+  --ap-action: #c94f38;
+  --ap-action-dark: #ad3f2a;
+
+  --ap-ok: #1f7a3d;
+  --ap-ok-soft: #e6f5ea;
+
+  --ap-r-md: 16px;
+  --ap-r-lg: 28px;
+
+  --ap-shadow-card: 0 2px 4px rgba(50, 30, 20, 0.04),
+                    0 24px 60px rgba(50, 30, 20, 0.10);
+  --ap-ring: 0 0 0 4px rgba(201, 79, 56, 0.18);
+}
+
+
+/* =====================================================================
+   1. TOP BANNER  -  ORIGINAL (unchanged)
+===================================================================== */
+
+.apptTop {
+  position: relative;
+  width: 100%;
+  padding: 46px 20px 38px;
+  box-sizing: border-box;
+  overflow: hidden;
+  text-align: center;
+  background: linear-gradient(to bottom, #fdf0e8, #f8f6f2);
+}
+
+.apptTop::before,
+.apptTop::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  background: #f5e3dc;
+  pointer-events: none;
+}
+
+.apptTop::before {
+  width: 220px;
+  height: 220px;
+  left: -90px;
+  top: -110px;
+  opacity: 0.7;
+}
+
+.apptTop::after {
+  width: 170px;
+  height: 170px;
+  right: -60px;
+  bottom: -90px;
+  opacity: 0.6;
+}
+
+.apptTop__inner {
+  position: relative;
+  z-index: 2;
+  max-width: 760px;
+  margin: 0 auto;
+  animation: apptTopFade 0.7s ease-out both;
+}
+
+.apptTop__eyebrow {
+  display: block;
+  margin-bottom: 12px;
+  color: #d66d57;
+  font: 500 12px Georgia, serif;
+  letter-spacing: 3px;
+}
+
+.apptTop__title {
+  margin: 0 0 22px;
+  color: #292522;
+  font-family: Georgia, serif;
+  font-size: clamp(28px, 4.2vw, 42px);
+  font-weight: 400;
+  line-height: 1.15;
+}
+
+.apptTop__br {
+  display: none;
+}
+
+.apptTop__chips {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.apptTop__chips span {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 16px;
+  border: 1px solid #ead3ca;
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.85);
+  color: #625e58;
+  font-size: 12px;
+  font-weight: 500;
+  white-space: nowrap;
+  opacity: 0;
+  animation: apptChipIn 0.9s ease forwards;
+  animation-delay: calc(0.8s + var(--i) * 0.4s);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.apptTop__chips span:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(214, 109, 87, 0.15);
+}
+
+.apptTop__tick {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #d66d57;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  transform: scale(0);
+  animation: apptTickPop 0.6s ease forwards;
+  animation-delay: calc(1.4s + var(--i) * 0.4s);
+}
+
+@keyframes apptChipIn {
+  from { opacity: 0; transform: translateY(12px) scale(0.95); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes apptTickPop {
+  0%   { transform: scale(0); }
+  70%  { transform: scale(1.25); }
+  100% { transform: scale(1); }
+}
+
+@keyframes apptTopFade {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+
+/* =====================================================================
+   2. PAGE LAYOUT + HEADING TEXT  -  ORIGINAL (unchanged)
+===================================================================== */
+
+.skinAppt {
+  padding: 70px 20px;
+  background: #f8f6f2;
+  color: #292522;
+}
+
+.skinAppt__wrap {
+  width: min(1180px, 100%);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  gap: 56px;
+  align-items: start;
+}
+
+.skinAppt__content {
+  min-width: 0;
+}
+
+/* ----- original text styles ----- */
+
+.skinAppt__eyebrow {
+  margin-bottom: 14px;
+  color: #9a765b;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+}
+
+.skinAppt__title {
+  margin: 0;
+  font-family: Georgia, serif;
+  font-size: clamp(40px, 5vw, 62px);
+  font-weight: 400;
+  line-height: 1.05;
+}
+
+.skinAppt__intro {
+  max-width: 480px;
+  margin: 20px 0 32px;
+  color: #77716b;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+
+/* =====================================================================
+   3. FORM CARD + GRID
+   FIX: har direct child full width (name field ab chhota nahi rahega).
+   Sirf doctor + consultation type select 2 column me rahenge.
+===================================================================== */
+
+.skinAppt__form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-auto-flow: row;
+  gap: 14px;
+  width: 100%;
+  max-width: 100%;
+  padding: 34px;
+  box-sizing: border-box;
+  background: #ffffff;
+  border: 1px solid var(--ap-line-soft);
+  border-radius: var(--ap-r-lg);
+  box-shadow: var(--ap-shadow-card);
+  font-family: var(--ap-font);
+}
+
+.skinAppt__form *,
+.skinAppt__form *::before,
+.skinAppt__form *::after {
+  box-sizing: border-box;
+}
+
+.skinAppt .skinAppt__form > * {
+  grid-column: 1 / -1 !important;
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  margin: 0;
+}
+
+.skinAppt .skinAppt__form > select[name="doctor"],
+.skinAppt .skinAppt__form > select[name="consultationType"] {
+  grid-column: auto !important;
+}
+
+.skinAppt__row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.skinAppt__row > * {
+  min-width: 0;
+}
+
+
+/* =====================================================================
+   4. FIELDS  (!important so older global input rules can't win)
+===================================================================== */
+
+.skinAppt .skinAppt__form input:not([type="checkbox"]):not([type="radio"]):not([type="file"]):not([type="range"]),
+.skinAppt .skinAppt__form select,
+.skinAppt .skinAppt__form textarea {
+  display: block;
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box;
+  min-height: 54px;
+  margin: 0;
+  padding: 14px 18px !important;
+  color: var(--ap-ink) !important;
+  background-color: var(--ap-field) !important;
+  border: 1.5px solid var(--ap-line) !important;
+  border-radius: var(--ap-r-md) !important;
+  box-shadow: none !important;
+  font-family: var(--ap-font) !important;
+  font-size: 15px !important;
+  font-weight: 500 !important;
+  line-height: 1.4;
+  outline: none;
+  transition: border-color 0.18s ease, box-shadow 0.18s ease, background-color 0.18s ease;
+}
+
+.skinAppt .skinAppt__form textarea {
+  min-height: 124px;
+  line-height: 1.6;
+  resize: vertical;
+}
+
+/* placeholder ek hi colour (blue-ish hata diya) */
+.skinAppt .skinAppt__form input::placeholder,
+.skinAppt .skinAppt__form textarea::placeholder {
+  color: var(--ap-muted) !important;
+  opacity: 1 !important;
+  font-family: var(--ap-font);
+  font-weight: 500;
+}
+
+.skinAppt .skinAppt__form input:not([type="checkbox"]):not([type="radio"]):hover,
+.skinAppt .skinAppt__form select:hover,
+.skinAppt .skinAppt__form textarea:hover {
+  border-color: var(--ap-line-strong) !important;
+}
+
+.skinAppt .skinAppt__form input:not([type="checkbox"]):not([type="radio"]):focus,
+.skinAppt .skinAppt__form select:focus,
+.skinAppt .skinAppt__form textarea:focus {
+  background-color: #ffffff !important;
+  border-color: var(--ap-coral) !important;
+  box-shadow: var(--ap-ring) !important;
+}
+
+.skinAppt .skinAppt__form select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  cursor: pointer;
+  padding-right: 48px !important;
+  text-overflow: ellipsis;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='9' viewBox='0 0 14 9'><path d='M1 1.5l6 6 6-6' fill='none' stroke='%231f1a17' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 20px center;
+}
+
+.skinAppt .skinAppt__form select:invalid {
+  color: var(--ap-muted) !important;
+}
+
+.skinAppt .skinAppt__form select option {
+  color: var(--ap-ink);
+  background: #ffffff;
+}
+
+.skinAppt .skinAppt__form input:disabled,
+.skinAppt .skinAppt__form select:disabled {
+  color: var(--ap-ink-soft) !important;
+  background-color: #ece5df !important;
+  border-color: #d9cec5 !important;
+  cursor: not-allowed;
+}
+
+
+/* =====================================================================
+   5. PHONE / OTP / VERIFIED  (button colour = --ap-action = coral)
+===================================================================== */
+
+.skinAppt__phone,
+.skinAppt__otp {
+  display: flex;
+  align-items: stretch;
+  gap: 10px;
+}
+
+.skinAppt__phone input,
+.skinAppt__otp input {
+  flex: 1;
+  min-width: 0;
+}
+
+.skinAppt .skinAppt__phone button,
+.skinAppt .skinAppt__otp button {
+  flex: 0 0 auto;
+  min-width: 124px;
+  min-height: 54px;
+  padding: 0 22px;
+  border: 0;
+  border-radius: var(--ap-r-md);
+  background: var(--ap-action);
+  color: #ffffff;
+  font-family: var(--ap-font);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+  cursor: pointer;
+  box-shadow: 0 8px 18px rgba(201, 79, 56, 0.30);
+  transition: background-color 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.skinAppt .skinAppt__phone button:hover:not(:disabled),
+.skinAppt .skinAppt__otp button:hover:not(:disabled) {
+  background: var(--ap-action-dark);
+  box-shadow: 0 12px 24px rgba(201, 79, 56, 0.40);
+}
+
+.skinAppt .skinAppt__phone button:active:not(:disabled),
+.skinAppt .skinAppt__otp button:active:not(:disabled) {
+  transform: scale(0.97);
+}
+
+.skinAppt .skinAppt__phone button:focus-visible,
+.skinAppt .skinAppt__otp button:focus-visible {
+  outline: 3px solid var(--ap-ink);
+  outline-offset: 2px;
+}
+
+.skinAppt .skinAppt__phone button:disabled,
+.skinAppt .skinAppt__otp button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.skinAppt__verified {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 18px;
+  border-radius: var(--ap-r-md);
+  background: var(--ap-ok-soft);
+  color: var(--ap-ok);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+
+/* =====================================================================
+   6. NOTICES
+===================================================================== */
+
+.skinAppt__leaveNotice {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 16px 18px;
+  border-radius: var(--ap-r-md);
+  background: var(--ap-coral-soft);
+  box-shadow: inset 4px 0 0 var(--ap-coral);
+  color: var(--ap-ink);
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.skinAppt__noticeHeader strong {
+  color: var(--ap-ink);
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.skinAppt__noticeRow {
+  display: flex;
+  align-items: baseline;
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.skinAppt__noticeLabel {
+  flex: 0 0 auto;
+  color: var(--ap-ink-soft);
+  font-weight: 700;
+}
+
+.skinAppt__noticeValue,
+.skinAppt__noticeReason {
+  min-width: 0;
+  color: var(--ap-ink);
+  font-weight: 500;
+  overflow-wrap: anywhere;
+}
+
+.skinAppt__noticeReason {
+  flex: 1;
+}
+
+.skinAppt__noticeDateValue {
+  min-width: 0;
+  color: var(--ap-coral-dark);
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.appointment-day-message {
+  padding: 12px 18px;
+  border-radius: var(--ap-r-md);
+  background: #f4efea;
+}
+
+.appointment-day-message p {
+  margin: 0;
+  color: var(--ap-ink);
+  font-family: var(--ap-font);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+
+/* =====================================================================
+   7. CUSTOM CALENDAR
+===================================================================== */
+
+.skinAppt__calendarField {
+  position: relative;
+  width: 100%;
+  min-width: 0;
+}
+
+.skinAppt__calendarField.is-open {
+  z-index: 30;
+}
+
+.skinAppt__calendarTrigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  width: 100%;
+  min-width: 0;
+  min-height: 54px;
+  box-sizing: border-box;
+  padding: 14px 18px;
+  border: 1.5px solid var(--ap-line);
+  border-radius: var(--ap-r-md);
+  background: var(--ap-field);
+  color: var(--ap-ink);
+  font-family: var(--ap-font);
+  font-size: 15px;
+  font-weight: 500;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 0.18s ease, box-shadow 0.18s ease, background-color 0.18s ease;
+}
+
+.skinAppt__calendarTrigger:hover:not(:disabled) {
+  border-color: var(--ap-line-strong);
+}
+
+.skinAppt__calendarField.is-open .skinAppt__calendarTrigger,
+.skinAppt__calendarTrigger:focus-visible {
+  background: #ffffff;
+  border-color: var(--ap-coral);
+  box-shadow: var(--ap-ring);
+  outline: none;
+}
+
+.skinAppt__calendarTrigger:disabled {
+  cursor: wait;
+  opacity: 0.7;
+}
+
+.skinAppt__calendarIcon {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 auto;
+  fill: none;
+  stroke: var(--ap-ink);
+  stroke-width: 1.7;
+}
+
+.skinAppt__calPopover {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  z-index: 40;
+  width: 332px;
+  max-width: min(360px, calc(100vw - 32px));
+  padding: 18px;
+  box-sizing: border-box;
+  background: #ffffff;
+  border: 1px solid var(--ap-line-soft);
+  border-radius: 22px;
+  box-shadow: 0 24px 56px rgba(50, 30, 20, 0.22);
+  font-family: var(--ap-font);
+}
+
+.skinAppt__calHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 12px;
+  color: var(--ap-ink);
+  font-family: var(--ap-font);
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.skinAppt__calNav,
+.skinAppt__calDay {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  background: transparent;
+  color: var(--ap-ink);
+  cursor: pointer;
+}
+
+.skinAppt__calNav {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  font-size: 22px;
+}
+
+.skinAppt__calNav:hover:not(:disabled) {
+  background: var(--ap-coral-soft);
+}
+
+.skinAppt__calNav:disabled {
+  color: #c2b8b0;
+  cursor: not-allowed;
+}
+
+.skinAppt__calGrid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 4px;
+  text-align: center;
+}
+
+.skinAppt__calWeekday {
+  padding: 7px 0;
+  color: var(--ap-muted);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.skinAppt__calEmpty,
+.skinAppt__calDay {
+  min-width: 0;
+  height: 38px;
+}
+
+.skinAppt__calDay {
+  border-radius: 12px;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  transition: background-color 0.15s ease;
+}
+
+.skinAppt__calDay:hover:not(.is-disabled):not(.is-selected) {
+  background: var(--ap-coral-soft);
+}
+
+.skinAppt__calDay.is-today {
+  box-shadow: inset 0 0 0 2px var(--ap-coral);
+}
+
+.skinAppt__calDay.is-selected {
+  background: var(--ap-coral);
+  color: #ffffff;
+}
+
+.skinAppt__calDay.is-disabled {
+  background: transparent;
+  color: #a69c94;
+  text-decoration: line-through;
+  cursor: not-allowed;
+}
+
+.skinAppt__calDay.is-disabled.is-selected {
+  background: #ddd5ce;
+  color: #7c746d;
+}
+
+.skinAppt__calLegend {
+  margin: 12px 0 0;
+  color: var(--ap-muted);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+
+/* =====================================================================
+   8. SUBMIT + FEE NOTE
+===================================================================== */
+
+.skinAppt__submit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 60px;
+  margin-top: 6px;
+  padding: 16px 24px;
+  border: 0;
+  border-radius: var(--ap-r-md);
+  background: var(--ap-coral);
+  color: #ffffff;
+  font-family: var(--ap-font);
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  box-shadow: 0 12px 28px rgba(201, 79, 56, 0.34);
+  transition: background-color 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.skinAppt__submit:hover {
+  background: var(--ap-coral-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 16px 34px rgba(201, 79, 56, 0.42);
+}
+
+.skinAppt__submit:active {
+  transform: translateY(0);
+}
+
+.skinAppt__submit:focus-visible {
+  outline: 3px solid var(--ap-ink);
+  outline-offset: 3px;
+}
+
+.skinAppt__submit span {
+  font-size: 16px;
+}
+
+.skinAppt .skinAppt__form > .skinAppt__feeNote {
+  width: auto;
+  justify-self: center;
+}
+
+.skinAppt__feeNote {
+  padding: 9px 18px;
+  border-radius: 999px;
+  background: #f4efea;
+  color: var(--ap-ink-soft);
+  font-size: 13px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.skinAppt__feeNote strong {
+  color: var(--ap-coral-dark);
+  font-size: 14px;
+  font-weight: 800;
+}
+
+
+/* =====================================================================
+   9. PHOTO PANEL
+   FIX: image ka fixed ratio, face crop sahi, mobile par proper height
+===================================================================== */
+
+.skinAppt__visual {
+  position: sticky;
+  top: 24px;
+  height: min(740px, calc(100vh - 48px));
+  min-height: 480px;
+  overflow: hidden;
+  border-radius: var(--ap-r-lg);
+  background: #e9dfd7;
+  box-shadow: var(--ap-shadow-card);
+  isolation: isolate;
+}
+
+.skinAppt__visual img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center 30%;
+}
+
+.skinAppt__visual::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 45%;
+  background: linear-gradient(to top, rgba(25, 15, 10, 0.5), transparent);
+  pointer-events: none;
+}
+
+.skinAppt__info {
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  bottom: 16px;
+  z-index: 2;
+  padding: 18px 20px;
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 20px;
+}
+
+.skinAppt__info span {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--ap-coral-dark);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+}
+
+.skinAppt__info strong {
+  display: block;
+  color: var(--ap-ink);
+  font-family: Georgia, serif;
+  font-size: 19px;
+  font-weight: 400;
+}
+
+.skinAppt__info p {
+  margin: 4px 0 0;
+  color: var(--ap-ink-soft);
+  font-size: 13px;
+}
+
+.skinAppt__info small {
+  color: var(--ap-muted);
+  font-size: 12px;
+}
+
+
+/* =====================================================================
+   10. SUCCESS SCREEN
+===================================================================== */
+
+.skinAppt__success {
+  text-align: left;
+}
+
+.skinAppt__successIcon {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 22px;
+  border-radius: 50%;
+  background: var(--ap-ok-soft);
+  color: var(--ap-ok);
+  font-size: 26px;
+  font-weight: 800;
+}
+
+.skinAppt__successInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-bottom: 20px;
+  padding: 24px;
+  background: #ffffff;
+  border: 1px solid var(--ap-line-soft);
+  border-radius: var(--ap-r-lg);
+  box-shadow: var(--ap-shadow-card);
+  font-family: var(--ap-font);
+}
+
+.skinAppt__successInfo span {
+  color: var(--ap-coral-dark);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+}
+
+.skinAppt__successInfo strong {
+  margin: 4px 0 10px;
+  color: var(--ap-ink);
+  font-family: Georgia, serif;
+  font-size: 30px;
+  font-weight: 400;
+}
+
+.skinAppt__successInfo small {
+  color: var(--ap-ink-soft);
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.skinAppt__payment {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.skinAppt__back {
+  padding: 10px;
+  border: 0;
+  background: transparent;
+  color: var(--ap-ink-soft);
+  font-family: var(--ap-font);
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.skinAppt__back:hover {
+  color: var(--ap-coral-dark);
+}
+
+
+/* =====================================================================
+   11. POPUPS
+===================================================================== */
+
+.medicine-popup-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(30, 22, 18, 0.55);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.medicine-popup {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  max-height: calc(100vh - 40px);
+  overflow-y: auto;
+  padding: 44px 36px 30px;
+  box-sizing: border-box;
+  background: #ffffff;
+  border-radius: var(--ap-r-lg);
+  box-shadow: 0 32px 90px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  font-family: var(--ap-font);
+  animation: apPopupIn 0.28s ease;
+}
+
+.medicine-popup-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 38px;
+  height: 38px;
+  border: 0;
+  border-radius: 50%;
+  background: #f4efea;
+  color: var(--ap-ink);
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background-color 0.18s ease;
+}
+
+.medicine-popup-close:hover {
+  background: var(--ap-coral-soft);
+  color: var(--ap-coral-dark);
+}
+
+.medicine-popup-icon {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 18px;
+  background: var(--ap-coral-soft);
+  color: var(--ap-coral-dark);
+  font-size: 24px;
+  font-weight: 800;
+}
+
+.medicine-popup-eyebrow {
+  display: inline-block;
+  margin-bottom: 12px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: #f4efea;
+  color: var(--ap-ink-soft);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+}
+
+.medicine-popup h2 {
+  margin: 0;
+  color: var(--ap-ink);
+  font-family: Georgia, serif;
+  font-size: 27px;
+  font-weight: 400;
+  line-height: 1.25;
+}
+
+.medicine-popup p {
+  max-width: 390px;
+  margin: 14px auto 24px;
+  color: var(--ap-ink-soft);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.medicine-popup-options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.medicine-option {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 15px 16px;
+  border: 1.5px solid var(--ap-line);
+  border-radius: var(--ap-r-md);
+  background: #ffffff;
+  color: var(--ap-ink);
+  font-family: var(--ap-font);
+  font-size: 15px;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 0.18s ease, background-color 0.18s ease;
+}
+
+.medicine-option:hover {
+  border-color: var(--ap-coral);
+}
+
+.medicine-option.active {
+  border-color: var(--ap-coral);
+  background: var(--ap-coral-soft);
+}
+
+.medicine-option-radio {
+  width: 24px;
+  height: 24px;
+  flex: 0 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1.5px solid var(--ap-line-strong);
+  border-radius: 50%;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.medicine-option.active .medicine-option-radio {
+  border-color: var(--ap-coral);
+  background: var(--ap-coral);
+}
+
+.medicine-popup-continue {
+  width: 100%;
+  min-height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border: 0;
+  border-radius: var(--ap-r-md);
+  background: var(--ap-coral);
+  color: #ffffff;
+  font-family: var(--ap-font);
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.18s ease, transform 0.18s ease;
+}
+
+.medicine-popup-continue:hover:not(:disabled) {
+  background: var(--ap-coral-dark);
+  transform: translateY(-2px);
+}
+
+.medicine-popup-continue:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.medicine-popup-continue span {
+  font-size: 17px;
+}
+
+.medicine-popup-note {
+  display: block;
+  margin-top: 14px;
+  color: var(--ap-muted);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+
+/* =====================================================================
+   12. KEYFRAMES + RESPONSIVE + MOTION
+===================================================================== */
+
+@keyframes apPopupIn {
+  from { opacity: 0; transform: translateY(16px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* ---------- Tablet ---------- */
+@media (max-width: 960px) {
+  .skinAppt {
+    padding: 50px 18px;
+  }
+
+  .skinAppt__wrap {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .skinAppt__intro {
+    max-width: 100%;
+  }
+
+  .skinAppt__form {
+    padding: 28px;
+  }
+
+  .skinAppt__visual {
+    position: relative;
+    top: auto;
+    height: 440px;
+    min-height: 0;
+  }
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 600px) {
+  /* banner - original mobile rules */
+  .apptTop {
+    padding: 34px 16px 26px;
+  }
+
+  .apptTop__br {
+    display: block;
+  }
+
+  .apptTop__title {
+    margin-bottom: 16px;
+  }
+
+  .apptTop__chips {
+    gap: 7px;
+  }
+
+  .apptTop__chips span {
+    padding: 6px 12px;
+    font-size: 11px;
+  }
+
+  /* heading - original mobile rules */
+  .skinAppt {
+    padding: 40px 15px;
+  }
+
+  .skinAppt__title {
+    font-size: 40px;
+  }
+
+  /* form: sab kuch ek column me, full width */
+  .skinAppt__form {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+    padding: 20px 14px;
+    border-radius: 22px;
+  }
+
+  .skinAppt .skinAppt__form > *,
+  .skinAppt .skinAppt__form > select[name="doctor"],
+  .skinAppt .skinAppt__form > select[name="consultationType"] {
+    grid-column: 1 / -1 !important;
+  }
+
+  .skinAppt__row {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  /* phone + button ek hi line me */
+  .skinAppt__phone,
+  .skinAppt__otp {
+    flex-direction: row;
+    gap: 8px;
+  }
+
+  .skinAppt .skinAppt__phone button,
+  .skinAppt .skinAppt__otp button {
+    min-width: 92px;
+    min-height: 54px;
+    padding: 0 14px;
+    font-size: 11px;
+  }
+
+  /* iOS zoom na ho */
+  .skinAppt .skinAppt__form input:not([type="checkbox"]):not([type="radio"]),
+  .skinAppt .skinAppt__form select,
+  .skinAppt .skinAppt__form textarea {
+    font-size: 16px !important;
+    padding: 13px 16px !important;
+  }
+
+  .skinAppt .skinAppt__form select {
+    padding-right: 44px !important;
+    background-position: right 16px center;
+  }
+
+  .skinAppt__calendarTrigger {
+    font-size: 16px;
+    padding: 13px 16px;
+  }
+
+  .skinAppt__calPopover {
+    left: 0;
+    right: 0;
+    width: auto;
+    max-width: 100%;
+    padding: 14px;
+  }
+
+  .skinAppt__calDay,
+  .skinAppt__calEmpty {
+    height: 36px;
+  }
+
+  .skinAppt__submit {
+    min-height: 56px;
+    font-size: 15px;
+  }
+
+  .skinAppt .skinAppt__form > .skinAppt__feeNote {
+    width: 100%;
+    padding: 9px 12px;
+    font-size: 12px;
+    border-radius: 16px;
+  }
+
+  /* photo panel */
+  .skinAppt__visual {
+    height: 360px;
+    min-height: 0;
+    border-radius: 22px;
+  }
+
+  .skinAppt__visual img {
+    object-position: center 25%;
+  }
+
+  .skinAppt__info {
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+    padding: 14px 16px;
+    border-radius: 16px;
+  }
+
+  .skinAppt__info strong {
+    font-size: 17px;
+  }
+
+  .skinAppt__leaveNotice {
+    padding: 13px 14px;
+    font-size: 13.5px;
+  }
+
+  .skinAppt__noticeRow {
+    flex-wrap: wrap;
+  }
+
+  .medicine-popup-overlay {
+    padding: 14px;
+  }
+
+  .medicine-popup {
+    padding: 40px 20px 24px;
+    border-radius: 22px;
+  }
+
+  .medicine-popup h2 {
+    font-size: 23px;
+  }
+
+  .medicine-popup p {
+    font-size: 14px;
+  }
+
+  .medicine-option {
+    padding: 13px;
+    font-size: 14px;
+  }
+}
+
+/* ---------- Bahut chhoti screens ---------- */
+@media (max-width: 380px) {
+  .skinAppt__form {
+    padding: 18px 12px;
+  }
+
+  .skinAppt__phone,
+  .skinAppt__otp {
+    flex-direction: column;
+  }
+
+  .skinAppt .skinAppt__phone button,
+  .skinAppt .skinAppt__otp button {
+    width: 100%;
+  }
+
+  .skinAppt__visual {
+    height: 320px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .apptTop__inner,
+  .medicine-popup {
+    animation: none;
+  }
+
+  .apptTop__chips span,
+  .apptTop__tick {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  .skinAppt__submit,
+  .medicine-popup-continue {
+    transition: none;
+  }
+}
+
+
+/* =====================================================================
+   13. REFINED FORM + PHOTO  (light, slim - banner/heading untouched)
+===================================================================== */
+
+.skinAppt { overflow-x: clip; }
+
+.skinAppt__wrap { position: relative; isolation: isolate; }
+
+/* ek hi soft glow, bas */
+.skinAppt__wrap::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 380px;
+  height: 380px;
+  right: -120px;
+  top: 40px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(240, 180, 158, 0.35), rgba(240, 180, 158, 0) 70%);
+  pointer-events: none;
+}
+
+/* ---------- FORM CARD ---------- */
+.skinAppt .skinAppt__form {
+  position: relative;
+  gap: 12px;
+  padding: 30px 28px 26px !important;
+  background: linear-gradient(170deg, #fff8f4 0%, #fdeee6 100%) !important;
+  border: 1px solid #f1d3c5 !important;
+  border-radius: 24px !important;
+   overflow: visible;
+  box-shadow:
+    0 1px 2px rgba(120, 60, 40, 0.05),
+    0 18px 44px rgba(173, 63, 42, 0.12) !important;
+}
+
+/* patla accent line */
+.skinAppt .skinAppt__form::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 28px;
+  right: 28px;
+  height: 3px;
+  border-radius: 0 0 4px 4px;
+  background: linear-gradient(90deg, #c94f38, #e8896f);
+}
+
+/* ---------- FIELDS: slim, white ---------- */
+.skinAppt .skinAppt__form input:not([type="checkbox"]):not([type="radio"]):not([type="file"]):not([type="range"]),
+.skinAppt .skinAppt__form select,
+.skinAppt .skinAppt__form textarea {
+  min-height: 50px;
+  padding: 12px 16px !important;
+  background-color: #ffffff !important;
+  border: 1px solid #ead8cd !important;
+  border-radius: 12px !important;
+  box-shadow: none !important;
+  font-size: 14.5px !important;
+  font-weight: 500 !important;
+}
+
+.skinAppt .skinAppt__form textarea {
+  min-height: 100px;
+}
+
+.skinAppt .skinAppt__form select {
+  padding-right: 42px !important;
+  background-position: right 16px center;
+}
+
+.skinAppt .skinAppt__form input:not([type="checkbox"]):not([type="radio"]):hover,
+.skinAppt .skinAppt__form select:hover,
+.skinAppt .skinAppt__form textarea:hover {
+  border-color: #dcb8a8 !important;
+}
+
+.skinAppt .skinAppt__form input:not([type="checkbox"]):not([type="radio"]):focus,
+.skinAppt .skinAppt__form select:focus,
+.skinAppt .skinAppt__form textarea:focus {
+  border-color: #c94f38 !important;
+  box-shadow: 0 0 0 3px rgba(201, 79, 56, 0.15) !important;
+}
+
+.skinAppt .skinAppt__form input:disabled,
+.skinAppt .skinAppt__form select:disabled {
+  background-color: #f6ebe4 !important;
+  border-color: #ecdcd2 !important;
+}
+
+.skinAppt__calendarTrigger {
+  min-height: 50px;
+  padding: 12px 16px;
+  background: #ffffff;
+  border: 1px solid #ead8cd;
+  border-radius: 12px;
+  font-size: 14.5px;
+  box-shadow: none;
+}
+
+.skinAppt__calendarTrigger:hover:not(:disabled) { border-color: #dcb8a8; }
+
+/* ---------- BUTTONS ---------- */
+.skinAppt .skinAppt__phone button,
+.skinAppt .skinAppt__otp button {
+  min-width: 108px;
+  min-height: 50px;
+  padding: 0 18px;
+  background: #c94f38 !important;
+  border-radius: 12px;
+  font-size: 11.5px;
+  box-shadow: 0 4px 10px rgba(201, 79, 56, 0.25);
+}
+
+.skinAppt .skinAppt__phone button:hover:not(:disabled),
+.skinAppt .skinAppt__otp button:hover:not(:disabled) {
+  background: #ad3f2a !important;
+  box-shadow: 0 6px 14px rgba(201, 79, 56, 0.32);
+}
+
+.skinAppt__submit {
+  min-height: 54px;
+  margin-top: 4px;
+  padding: 14px 22px;
+  background: #c94f38;
+  border-radius: 14px;
+  font-size: 15px;
+  box-shadow: 0 8px 20px rgba(201, 79, 56, 0.28);
+}
+
+.skinAppt__submit:hover {
+  background: #ad3f2a;
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px rgba(201, 79, 56, 0.34);
+}
+
+.skinAppt .skinAppt__form > .skinAppt__feeNote {
+  padding: 7px 16px;
+  background: #ffffff;
+  border: 1px solid #f1d3c5;
+  box-shadow: none;
+  font-size: 12.5px;
+}
+
+.skinAppt__verified {
+  padding: 11px 16px;
+  background: #ffffff;
+  border: 1px solid #bfe3c9;
+}
+
+.skinAppt__leaveNotice { background: #ffffff; }
+.appointment-day-message { background: rgba(255, 255, 255, 0.7); }
+
+/* ---------- PHOTO PANEL ---------- */
+.skinAppt__visual {
+  border: 0;
+  border-radius: 24px;
+  background: #f1d3c6;
+  box-shadow:
+    0 0 0 1px rgba(241, 211, 197, 0.9),
+    0 18px 44px rgba(173, 63, 42, 0.16);
+}
+
+.skinAppt__visual img {
+  filter: none;
+}
+
+.skinAppt__visual::after {
+  height: 42%;
+  background: linear-gradient(to top, rgba(45, 20, 12, 0.5), transparent);
+}
+
+.skinAppt__info {
+  left: 14px;
+  right: 14px;
+  bottom: 14px;
+  padding: 14px 18px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(40, 15, 8, 0.18);
+}
+
+.skinAppt__info span::before { content: none; }
+
+.skinAppt__info strong { font-size: 18px; }
+
+/* ---------- TABLET / MOBILE ---------- */
+@media (max-width: 960px) {
+  .skinAppt__visual {
+    box-shadow: 0 0 0 1px rgba(241, 211, 197, 0.9), 0 14px 32px rgba(173, 63, 42, 0.14);
+  }
+}
+
+@media (max-width: 600px) {
+  .skinAppt__wrap::before { display: none; }
+
+  .skinAppt .skinAppt__form {
+    gap: 11px;
+    padding: 26px 14px 18px !important;
+    border-radius: 20px !important;
+  }
+
+  .skinAppt .skinAppt__form::before {
+    left: 14px;
+    right: 14px;
+  }
+
+  .skinAppt .skinAppt__phone button,
+  .skinAppt .skinAppt__otp button {
+    min-width: 88px;
+    padding: 0 12px;
+  }
+
+  .skinAppt__visual {
+    margin-right: 0;
+    border-radius: 20px;
+    box-shadow: 0 0 0 1px rgba(241, 211, 197, 0.9), 0 12px 28px rgba(173, 63, 42, 0.14);
+  }
+
+  .skinAppt__info {
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    padding: 12px 14px;
+  }
+}
+
+
+/* =====================================================================
+   14. INPUT VISIBILITY FIX  (clear border + soft depth, no "dry" look)
+===================================================================== */
+
+.skinAppt .skinAppt__form input:not([type="checkbox"]):not([type="radio"]):not([type="file"]):not([type="range"]),
+.skinAppt .skinAppt__form select,
+.skinAppt .skinAppt__form textarea {
+  background-color: #ffffff !important;
+  border: 1.5px solid #cfae9b !important;
+  box-shadow:
+    0 1px 2px rgba(90, 45, 30, 0.08),
+    0 4px 10px rgba(173, 63, 42, 0.07) !important;
+  color: #1f1a17 !important;
+}
+
+.skinAppt .skinAppt__form input::placeholder,
+.skinAppt .skinAppt__form textarea::placeholder {
+  color: #7a675c !important;
+  opacity: 1 !important;
+}
+
+.skinAppt .skinAppt__form select:invalid {
+  color: #7a675c !important;
+}
+
+.skinAppt .skinAppt__form input:not([type="checkbox"]):not([type="radio"]):hover,
+.skinAppt .skinAppt__form select:hover,
+.skinAppt .skinAppt__form textarea:hover {
+  border-color: #b98a72 !important;
+}
+
+.skinAppt .skinAppt__form input:not([type="checkbox"]):not([type="radio"]):focus,
+.skinAppt .skinAppt__form select:focus,
+.skinAppt .skinAppt__form textarea:focus {
+  border-color: #c94f38 !important;
+  box-shadow:
+    0 0 0 3px rgba(201, 79, 56, 0.18),
+    0 4px 12px rgba(201, 79, 56, 0.14) !important;
+}
+
+/* disabled (Choose date first) - alag dikhe par visible rahe */
+.skinAppt .skinAppt__form input:disabled,
+.skinAppt .skinAppt__form select:disabled {
+  background-color: #f3e7e0 !important;
+  border: 1.5px dashed #cfae9b !important;
+  box-shadow: none !important;
+  color: #7a675c !important;
+}
+
+/* calendar trigger bhi same style */
+.skinAppt__calendarTrigger {
+  border: 1.5px solid #cfae9b;
+  box-shadow:
+    0 1px 2px rgba(90, 45, 30, 0.08),
+    0 4px 10px rgba(173, 63, 42, 0.07);
+}
+
+.skinAppt__calendarTrigger:hover:not(:disabled) {
+  border-color: #b98a72;
+}
+
+.skinAppt__calendarField.is-open .skinAppt__calendarTrigger,
+.skinAppt__calendarTrigger:focus-visible {
+  border-color: #c94f38;
+  box-shadow: 0 0 0 3px rgba(201, 79, 56, 0.18), 0 4px 12px rgba(201, 79, 56, 0.14);
+}
+
+/* select ka arrow thoda gehra */
+.skinAppt .skinAppt__form select {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='9' viewBox='0 0 14 9'><path d='M1 1.5l6 6 6-6' fill='none' stroke='%23c94f38' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+}
+
+/* card ka tint thoda halka, taaki gehre border achhe se ubhre */
+.skinAppt .skinAppt__form {
+  background: linear-gradient(170deg, #fffaf7 0%, #fef1ea 100%) !important;
+}
+
+
+/* =====================================================================
+   15. STRONG BORDERS + MOBILE PHOTO HEIGHT
+===================================================================== */
+
+:root {
+  --ap-line: #b98a72;
+  --ap-line-strong: #a06f57;
+}
+
+/* ---------- INPUT BORDERS: clearly visible ---------- */
+html body .skinAppt .skinAppt__form input:not([type="checkbox"]):not([type="radio"]):not([type="file"]):not([type="range"]),
+html body .skinAppt .skinAppt__form select,
+html body .skinAppt .skinAppt__form textarea {
+  border: 1.5px solid #b98a72 !important;
+  box-shadow:
+    0 1px 2px rgba(90, 45, 30, 0.10),
+    0 4px 10px rgba(173, 63, 42, 0.08) !important;
+}
+
+html body .skinAppt .skinAppt__form input:not([type="checkbox"]):not([type="radio"]):hover,
+html body .skinAppt .skinAppt__form select:hover,
+html body .skinAppt .skinAppt__form textarea:hover {
+  border-color: #a06f57 !important;
+}
+
+html body .skinAppt .skinAppt__form input:not([type="checkbox"]):not([type="radio"]):focus,
+html body .skinAppt .skinAppt__form select:focus,
+html body .skinAppt .skinAppt__form textarea:focus {
+  border-color: #c94f38 !important;
+  box-shadow:
+    0 0 0 3px rgba(201, 79, 56, 0.20),
+    0 4px 12px rgba(201, 79, 56, 0.16) !important;
+}
+
+html body .skinAppt .skinAppt__form input:disabled,
+html body .skinAppt .skinAppt__form select:disabled {
+  border: 1.5px dashed #b98a72 !important;
+}
+
+html body .skinAppt .skinAppt__calendarTrigger {
+  border: 1.5px solid #b98a72;
+}
+
+html body .skinAppt .skinAppt__calendarTrigger:hover:not(:disabled) {
+  border-color: #a06f57;
+}
+
+html body .skinAppt .skinAppt__calendarField.is-open .skinAppt__calendarTrigger,
+html body .skinAppt .skinAppt__calendarTrigger:focus-visible {
+  border-color: #c94f38;
+}
+
+/* ---------- PHOTO: tablet + mobile par lambi rahe ---------- */
+@media (max-width: 960px) {
+  .skinAppt__visual {
+    height: auto;
+    aspect-ratio: 4 / 5;
+    min-height: 520px;
+    max-height: 680px;
+  }
+}
+
+@media (max-width: 600px) {
+  .skinAppt__visual {
+    height: auto;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    min-height: 460px;
+    max-height: 600px;
+  }
+
+  .skinAppt__visual img {
+    object-position: center 20%;
+  }
+}
+
+@media (max-width: 380px) {
+  .skinAppt__visual {
+    min-height: 420px;
+  }
+}

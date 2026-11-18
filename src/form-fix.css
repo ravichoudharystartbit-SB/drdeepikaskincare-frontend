@@ -1,0 +1,378 @@
+/* ===== Saare form fields ek jaise, saaf aur clear ===== */
+input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"]),
+select,
+textarea {
+  background: #ffffff !important;
+  color: #1b2a3a !important;
+  border: 1.5px solid #8a96a3 !important;   /* gehra border */
+  border-radius: 8px !important;            /* sab ka same round */
+  font-size: 15px !important;
+  font-weight: 500 !important;
+  box-sizing: border-box;
+  transition: border-color .2s ease, box-shadow .2s ease;
+}
+
+/* Placeholder: grey nahi, thoda gehra */
+input::placeholder,
+textarea::placeholder {
+  color: #5d6b7a !important;
+  opacity: 1 !important;
+}
+
+/* Hover: border thoda aur gehra */
+input:not([type="checkbox"]):not([type="radio"]):hover,
+select:hover,
+textarea:hover {
+  border-color: #5d6b7a !important;
+}
+
+/* Click/focus karne par saaf dikhe kaunsa field active hai */
+input:not([type="checkbox"]):not([type="radio"]):focus,
+select:focus,
+textarea:focus {
+  outline: none !important;
+  border-color: #9a6b4f !important;                 /* tumhare brown button wala color */
+  box-shadow: 0 0 0 3px rgba(154, 107, 79, .25) !important;
+}
+
+/* Disabled field (jaise "Choose date first"): halka par padhne layak */
+input:disabled,
+select:disabled,
+textarea:disabled {
+  background: #eeeae6 !important;
+  color: #4a5766 !important;
+  border-color: #b3bbc4 !important;
+  cursor: not-allowed;
+  opacity: 1 !important;
+}
+
+/* Dropdown ke andar ka text */
+select option {
+  color: #1b2a3a;
+  background: #ffffff;
+}
+
+/* Date picker wala icon bhi clear dikhe */
+input[type="date"]::-webkit-calendar-picker-indicator {
+  opacity: .85;
+  cursor: pointer;
+}
+
+/* Labels */
+label {
+  color: #12263a !important;
+  font-weight: 600 !important;
+}
+
+/* Clinic Schedule tabs */
+.schedule-settings-tab {
+  background: transparent !important;
+  color: #4a3f38 !important;
+  font-size: 14px;
+  font-weight: 700;
+}
+.schedule-settings-tab:hover {
+  background: #f6ece6 !important;
+  color: #2b1d19 !important;
+}
+.schedule-settings-tab[aria-selected="true"] {
+  background: #fbf1ec !important;
+  color: #7a4a35 !important;
+}
+.schedule-settings-tab[aria-selected="true"]::after {
+  background: #7a4a35;
+}
+
+/* Form ke paas ka chhota text (Tell us a little about yourself...) */
+form p,
+.booking-inner p {
+  color: #2f3f50 !important;
+  font-weight: 500;
+}
+
+
+/* =====================================================
+   CONTRAST FIX (admin) - gehre border, gehra text, bada font
+===================================================== */
+
+/* ---- Heading ke upar chhote labels ---- */
+.admin-topbar span,
+.admin-section-header span,
+.admin-section-header > div span {
+  color: #5c4538;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.admin-user small {
+  color: #4a3f38;
+  font-size: 12px;
+}
+
+/* ---- Stat cards (Total / Today's / Contact) ---- */
+.admin-stat-card {
+  background: #ffffff;
+  border: 1.5px solid #b98f84;
+  box-shadow: 0 3px 12px rgba(73, 51, 45, 0.12);
+}
+.admin-stat-card::before {
+  width: 4px;
+  background: #8a5648;
+}
+.admin-stat-card span {
+  color: #4a352f;
+  font-size: 14px;
+  font-weight: 700;
+}
+.admin-stat-card strong {
+  color: #2b1d19;
+  font-size: 30px;
+}
+
+/* ---- Main panel ---- */
+.admin-appointments {
+  background: #fffaf8;
+  border: 1.5px solid #b98f84;
+  color: #2b1d19;
+}
+.admin-section-header {
+  border-bottom: 1.5px solid #d9bfb7;
+}
+.admin-section-header h2 {
+  color: #2b1d19;
+}
+
+/* Today / All / Attended / Refresh buttons */
+.admin-section-header button {
+  color: #3d2a24;
+  background: #f4e1db;
+  border: 1.5px solid #a87568;
+  font-size: 13px;
+  font-weight: 700;
+}
+.admin-section-header button:hover {
+  color: #fff;
+  background: #8a5648;
+  border-color: #8a5648;
+}
+
+/* ---- Filters (date, doctor) ---- */
+.slot-filters {
+  background: #f8ece8;
+  border: 1.5px solid #d2b3aa;
+}
+.slot-filter-label {
+  color: #3d2a24;
+  font-size: 12px;
+  font-weight: 700;
+}
+.slot-filter-input {
+  color: #2b1d19;
+  border: 1.5px solid #a88a80;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* ---- Empty message ---- */
+.admin-empty {
+  color: #3d2a24;
+  background: #fff;
+  border: 2px dashed #a88a80;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+/* ---- Legend (Available / Booked Online / Booked Offline) ---- */
+.slot-legend span {
+  color: #3d2a24;
+  background: #fff;
+  border: 1.5px solid #cdb0a7;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* ---- Slot cards ---- */
+.slot-card {
+  min-height: 108px;
+  padding: 9px;
+}
+.slot-card-header strong {
+  color: #2b1d19;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.slot-card-available { border: 2px solid #5f9a66; }
+.slot-card-online    { border: 2px solid #5b86a0; }
+.slot-card-offline   { border: 2px solid #b9655a; }
+
+/* Status chips (Available / Online / Offline) */
+.slot-status {
+  font-size: 10px;
+  font-weight: 800;
+  padding: 3px 7px;
+}
+.slot-status-available { color: #2f6b37; background: #e6f4e8; border: 1.5px solid #8cc194; }
+.slot-status-online    { color: #2f5f7d; background: #e6f1f8; border: 1.5px solid #8fb9d1; }
+.slot-status-offline   { color: #8f3a2f; background: #fbe8e4; border: 1.5px solid #dd9d93; }
+
+/* Book Offline / Release buttons */
+.slot-action-btn {
+  height: 29px;
+  font-size: 11px;
+  font-weight: 800;
+}
+.slot-book-btn {
+  color: #2f6b37;
+  background: #e6f4e8;
+  border: 1.5px solid #8cc194;
+}
+.slot-book-btn:hover:not(:disabled) {
+  color: #fff;
+  background: #3f7d48;
+  border-color: #3f7d48;
+}
+.slot-release-btn {
+  color: #8f3a2f;
+  background: #fbe8e4;
+  border: 1.5px solid #dd9d93;
+}
+.slot-release-btn:hover:not(:disabled) {
+  color: #fff;
+  background: #a54a3e;
+  border-color: #a54a3e;
+}
+
+/* Patient name/phone jo slot ke andar dikhta hai */
+.slot-patient-info { border-top: 1.5px solid #d6c4bd; }
+.slot-patient-name { color: #2b1d19; font-weight: 700; }
+.slot-patient-phone { color: #4a3f38; font-size: 12px; }
+
+/* ---- Appointments table ---- */
+.appointment-table-wrapper {
+  border: 1.5px solid #b9a69d;
+}
+.appointment-table th {
+  color: #3d2a24;
+  background: #f1e1da;
+  border-bottom: 1.5px solid #cdb0a7;
+  font-size: 12px;
+}
+.appointment-table td {
+  color: #2f2924;
+  font-size: 14px;
+  border-bottom: 1px solid #d6cbc4;
+}
+.appointment-table td small {
+  color: #4a3f38;
+  font-size: 12px;
+}
+
+/* ---- Forms (admin ke andar) ---- */
+.admin-appointments form label {
+  color: #2b1d19;
+  font-size: 13px;
+}
+.admin-appointments input[type="text"],
+.admin-appointments input[type="email"],
+.admin-appointments input[type="password"],
+.admin-appointments input[type="date"],
+.admin-appointments input[type="time"],
+.admin-appointments input[type="url"],
+.admin-appointments select,
+.admin-appointments textarea {
+  border: 1.5px solid #8a7a70;
+  font-size: 14px;
+}
+.admin-appointments input::placeholder,
+.admin-appointments textarea::placeholder {
+  color: #5d5048;
+}
+
+/* ---- Modals ---- */
+.schedule-modal-header p,
+.schedule-session span,
+.schedule-doctor-leave-field small {
+  color: #4a3f38;
+}
+.schedule-time input,
+.schedule-doctor-leave-field input,
+.schedule-doctor-leave-field select {
+  border: 1.5px solid #8a7a70;
+}
+
+css
+/* ===== Balanced Border Thickness ===== */
+
+/* All form fields */
+input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"]),
+select,
+textarea {
+  border-width: 1.8px !important;
+}
+
+/* Hover and focus */
+input:not([type="checkbox"]):not([type="radio"]):hover,
+select:hover,
+textarea:hover {
+  border-color: #5d6b7a !important;
+}
+
+input:not([type="checkbox"]):not([type="radio"]):focus,
+select:focus,
+textarea:focus {
+  border-width: 2px !important;
+}
+
+/* Admin cards and panels */
+.admin-stat-card,
+.admin-appointments,
+.appointment-table-wrapper {
+  border-width: 2px !important;
+}
+
+/* Header buttons and filter container */
+.admin-section-header button,
+.slot-filters {
+  border-width: 1.8px !important;
+}
+
+/* Filter fields and admin forms */
+.slot-filter-input,
+.admin-appointments input,
+.admin-appointments select,
+.admin-appointments textarea,
+.schedule-time input,
+.schedule-doctor-leave-field input,
+.schedule-doctor-leave-field select {
+  border-width: 1.8px !important;
+}
+
+/* Slot cards */
+.slot-card-available,
+.slot-card-online,
+.slot-card-offline {
+  border-width: 2px !important;
+}
+
+/* Status badges and action buttons */
+.slot-status-available,
+.slot-status-online,
+.slot-status-offline,
+.slot-book-btn,
+.slot-release-btn {
+  border-width: 1.5px !important;
+}
+
+/* Table and dividers */
+.appointment-table th {
+  border-bottom-width: 1.5px !important;
+}
+
+.appointment-table td {
+  border-bottom-width: 1px !important;
+}
+
+.slot-patient-info {
+  border-top-width: 1.5px !important;
+}

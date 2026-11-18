@@ -1,0 +1,151 @@
+.gst-wrap {
+  width: 100%;
+  align-self: stretch;
+  margin: 0 0 18px;
+  padding: 0;
+
+  animation: gstSlideIn 0.8s ease 0.35s both;
+}
+
+.gst-dark {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  width: 100%;
+  max-width: 100%;
+  margin-top: 15px;
+  box-sizing: border-box;
+
+  background: #3a2f2b;
+  border: 1px solid #4a3d38;
+  border-radius: 12px;
+  box-shadow: none;
+  overflow: hidden;
+  text-align: left;
+}
+
+.gst-dark-left {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  flex-shrink: 0;
+  padding: 9px 16px;
+  border-right: 1px solid #4a403c;
+}
+
+.gst-dark-tick {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  background: #d9826b;
+  color: #fff;
+  font-size: 11px;
+}
+
+.gst-dark-label {
+  display: block;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #b79c92;
+}
+
+.gst-dark-title {
+  display: block;
+  margin-top: 1px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.gst-dark-right {
+  flex: 1;
+  padding: 9px 16px;
+}
+
+.gst-dark-right p {
+  margin: 2px 0 0;
+  font-size: 12px;
+  line-height: 1.45;
+  color: #eadfd9;
+  text-align: left;
+}
+
+.gst-dark-right b {
+  color: #f4b3a1;
+  font-weight: 700;
+}
+
+.gst-short {
+  display: none;
+}
+
+@media (max-width: 700px) {
+  .gst-wrap {
+    margin: 12px 0 12px;
+  }
+
+  .gst-dark {
+    flex-direction: column;
+    align-items: stretch;
+    border-radius: 10px;
+  }
+
+  .gst-dark-left {
+    gap: 8px;
+    padding: 8px 12px 2px;
+    border-right: 0;
+  }
+
+  .gst-dark-label {
+    display: none;
+  }
+
+  .gst-dark-tick {
+    width: 18px;
+    height: 18px;
+    font-size: 10px;
+  }
+
+  .gst-dark-title {
+    margin-top: 0;
+    font-size: 12.5px;
+  }
+
+  .gst-dark-right {
+    padding: 0 12px 8px 38px;
+  }
+
+  .gst-dark-right p {
+    margin: 0;
+    font-size: 11px;
+    line-height: 1.35;
+  }
+
+  .gst-long {
+    display: none;
+  }
+
+  .gst-short {
+    display: inline;
+  }
+}
+@keyframes gstSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gst-wrap {
+    animation: none;
+  }
+}

@@ -1,0 +1,602 @@
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.footer {
+  width: 100%;
+  background: #303030;
+  color: #fff;
+  padding: 78px 0 0;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.footer * {
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   MAIN FOOTER CONTAINER
+   ========================================================= */
+
+.footer-container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+
+  padding: 0 55px 68px;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(300px, 1.8fr)
+    minmax(150px, 0.95fr)
+    minmax(150px, 0.95fr)
+    minmax(210px, 1.2fr);
+
+  gap: 70px;
+
+  align-items: start;
+}
+
+
+/* =========================================================
+   BRAND
+   ========================================================= */
+
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  min-width: 0;
+}
+
+.logo2 {
+  width: 210px;
+  height: auto;
+
+  margin-bottom: 25px;
+}
+
+.logo2 img {
+  width: 100%;
+  height: auto;
+
+  display: block;
+
+  object-fit: contain;
+}
+
+
+/* Brand Description */
+
+.brand-text {
+  margin: 0 0 30px;
+
+  max-width: 350px;
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: 14px;
+  line-height: 1.85;
+
+  color: #d7d7d7;
+}
+
+
+/* =========================================================
+   CONTACT
+   ========================================================= */
+
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+
+  gap: 13px;
+
+  margin-bottom: 19px;
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: 13px;
+  line-height: 1.65;
+
+  color: #d5d5d5;
+}
+
+.contact-icon {
+  width: 23px;
+  min-width: 23px;
+
+  height: 23px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-top: 1px;
+}
+
+.contact-icon svg {
+  width: 19px;
+  height: 19px;
+
+  fill: none;
+
+  stroke: #d66d57;
+
+  stroke-width: 1.7;
+
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+
+/* =========================================================
+   FOOTER COLUMNS
+   ========================================================= */
+
+.footer-column {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  min-width: 0;
+}
+
+.footer-column h3 {
+  margin: 0 0 25px;
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: 17px;
+
+  font-weight: 500;
+
+  color: #fff;
+
+  letter-spacing: 0.1px;
+}
+
+
+/* =========================================================
+   LINKS
+   ========================================================= */
+
+.footer-link {
+  position: relative;
+
+  width: fit-content;
+
+  margin-bottom: 15px;
+
+  color: #cfcfcf;
+
+  text-decoration: none;
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: 13px;
+
+  line-height: 1.5;
+
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.footer-link::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  bottom: -4px;
+
+  width: 0;
+  height: 1px;
+
+  background: #d66d57;
+
+  transition: width 0.3s ease;
+}
+
+.footer-link:hover,
+.footer-link.active {
+  color: #d66d57;
+
+  transform: translateX(2px);
+}
+
+.footer-link:hover::after,
+.footer-link.active::after {
+  width: 100%;
+}
+
+
+/* =========================================================
+   CLINIC HOURS
+   ========================================================= */
+
+.footer-hours {
+  min-width: 0;
+}
+
+.clinic-time-row {
+  width: 100%;
+
+  margin-bottom: 24px;
+}
+
+.clinic-day {
+  display: block;
+
+  margin-bottom: 11px;
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: 13px;
+
+  color: #eeeeee;
+
+  font-weight: 500;
+
+  letter-spacing: 0.1px;
+}
+
+.clinic-timings {
+  display: flex;
+  flex-direction: column;
+
+  gap: 9px;
+}
+
+.clinic-timings > div {
+  display: flex;
+  align-items: center;
+
+  gap: 9px;
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: 12px;
+
+  color: #c5c5c5;
+
+  white-space: nowrap;
+}
+
+.clock-icon {
+  width: 8px;
+
+  font-size: 7px;
+
+  color: #d66d57;
+}
+
+
+/* =========================================================
+   BOTTOM FOOTER
+   ========================================================= */
+
+.footer-bottom {
+  width: 100%;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+
+  min-height: 82px;
+
+  padding: 0 55px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 25px;
+}
+
+.copyright {
+  min-width: 0;
+}
+
+.copyright p {
+  margin: 0;
+
+  font-size: 12px;
+
+  line-height: 1.5;
+
+  color: #999;
+}
+
+
+/* =========================================================
+   SOCIAL ICONS
+   ========================================================= */
+
+.social-icons {
+  display: flex;
+  align-items: center;
+
+  gap: 11px;
+
+  flex-shrink: 0;
+}
+
+.social-icons a {
+  width: 36px;
+  height: 36px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #cfcfcf;
+
+  border: 1px solid rgba(255, 255, 255, 0.18);
+
+  border-radius: 50%;
+
+  text-decoration: none;
+
+  transition:
+    color 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.3s ease,
+    background 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: #fff;
+
+  border-color: #d66d57;
+
+  background: rgba(214, 109, 87, 0.12);
+
+  transform: translateY(-3px);
+}
+
+.social-icons svg {
+  width: 17px;
+  height: 17px;
+
+  display: block;
+}
+
+
+/* =========================================================
+   LARGE SCREEN
+   ========================================================= */
+
+@media (min-width: 1500px) {
+  .footer-container {
+    max-width: 1450px;
+
+    padding-left: 35px;
+    padding-right: 35px;
+
+    gap: 80px;
+  }
+
+  .footer-bottom {
+    padding-left: 35px;
+    padding-right: 35px;
+  }
+
+  .logo2 {
+    width: 220px;
+  }
+}
+
+
+/* =========================================================
+   TABLET / SMALL LAPTOP
+   ========================================================= */
+
+@media (max-width: 1100px) {
+  .footer-container {
+    grid-template-columns:
+      1.6fr
+      1fr
+      1fr;
+
+    gap: 50px 40px;
+
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  .footer-brand {
+    grid-column: span 1;
+  }
+
+  .footer-hours {
+    grid-column: span 1;
+  }
+
+  .footer-bottom {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 850px) {
+  .footer {
+    padding-top: 60px;
+  }
+
+  .footer-container {
+    grid-template-columns: 1.5fr 1fr;
+
+    gap: 45px 50px;
+
+    padding: 0 35px 55px;
+  }
+
+  .footer-brand {
+    grid-column: span 2;
+  }
+
+  .footer-brand .brand-text {
+    max-width: 430px;
+  }
+
+  .footer-hours {
+    grid-column: span 1;
+  }
+
+  .footer-bottom {
+    padding: 0 35px;
+
+    min-height: 78px;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+  .footer {
+    padding-top: 52px;
+  }
+
+  .footer-container {
+    display: grid;
+
+    grid-template-columns: 1fr;
+
+    gap: 38px;
+
+    padding: 0 24px 45px;
+  }
+
+  .footer-brand,
+  .footer-hours {
+    grid-column: span 1;
+  }
+
+  .logo2 {
+    width: 185px;
+
+    margin-bottom: 20px;
+  }
+
+  .brand-text {
+    max-width: 100%;
+
+    font-size: 13px;
+
+    line-height: 1.75;
+
+    margin-bottom: 25px;
+  }
+
+  .contact-item {
+    font-size: 12.5px;
+
+    margin-bottom: 15px;
+  }
+
+  .footer-column h3 {
+    margin-bottom: 18px;
+
+    font-size: 16px;
+  }
+
+  .footer-link {
+    font-size: 13px;
+
+    margin-bottom: 12px;
+  }
+
+  .clinic-time-row {
+    margin-bottom: 19px;
+  }
+
+  .clinic-day {
+    font-size: 13px;
+  }
+
+  .clinic-timings > div {
+    font-size: 12px;
+  }
+
+  .footer-bottom {
+    padding: 20px 24px;
+
+    min-height: auto;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    text-align: center;
+
+    gap: 17px;
+  }
+
+  .copyright p {
+    font-size: 11px;
+
+    line-height: 1.6;
+  }
+
+  .social-icons {
+    gap: 9px;
+  }
+
+  .social-icons a {
+    width: 34px;
+    height: 34px;
+  }
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 380px) {
+  .footer-container {
+    padding-left: 18px;
+    padding-right: 18px;
+
+    gap: 34px;
+  }
+
+  .footer-bottom {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .logo2 {
+    width: 165px;
+  }
+
+  .brand-text {
+    font-size: 12.5px;
+  }
+
+  .contact-item {
+    font-size: 12px;
+  }
+
+  .social-icons a {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+
+

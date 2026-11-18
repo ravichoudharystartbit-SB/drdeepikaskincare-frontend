@@ -1,0 +1,571 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap");
+
+/* =========================================================
+   DEEPIKA NOTICE
+   Used by component/ClinicStatus.jsx
+   Home page ("side"): short compact box in the top-right corner
+   Appointment page ("card"): normal box above the form
+   Shown only when the clinic is closed or a doctor is on leave
+========================================================= */
+
+.dn,
+.dn-pill {
+  --dn-ink: #292522;
+  --dn-muted: #8a7d73;
+  --dn-line: #f0e9e0;
+  --dn-accent: #d66d57;
+  --dn-accent-soft: #fbece8;
+  --dn-brand: #9a765b;
+  --dn-font: "DM Sans", "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
+}
+
+.dn--leave,
+.dn-pill--leave,
+.dn--upcoming,
+.dn-pill--upcoming {
+  --dn-accent: #d99a2b;
+  --dn-accent-soft: #fdf3dd;
+}
+
+.dn {
+  box-sizing: border-box;
+  background: #ffffff;
+  color: var(--dn-ink);
+  font-family: var(--dn-font);
+  text-align: left;
+  border: 1px solid var(--dn-line);
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(41, 37, 34, 0.14);
+  overflow: hidden;
+}
+
+.dn *,
+.dn *::before,
+.dn *::after {
+  box-sizing: border-box;
+}
+
+/* ---------- placement ---------- */
+
+.dn--side {
+  position: absolute;
+  right: 14px;
+  top: 88px;
+  z-index: 900;
+  width: 236px;
+  max-width: calc(100vw - 36px);
+  animation: dnPop 0.35s cubic-bezier(0.22, 1, 0.36, 1) both;
+  transform-origin: top right;
+}
+
+.dn--card {
+  width: 100%;
+  margin: 0 0 16px;
+  box-shadow: 0 6px 18px rgba(41, 37, 34, 0.07);
+}
+
+/* ---------- small pill (collapsed state) ---------- */
+
+.dn-pill {
+  position: absolute;
+  right: 14px;
+  top: 88px;
+  z-index: 900;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 8px 8px 8px 14px;
+  border: 1px solid var(--dn-line);
+  border-radius: 999px;
+  background: #ffffff;
+  color: var(--dn-ink);
+  font-family: var(--dn-font);
+  font-size: 13.5px;
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 8px 22px rgba(41, 37, 34, 0.16);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  animation: dnPop 0.4s ease both;
+}
+
+.dn-pill:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 26px rgba(41, 37, 34, 0.2);
+}
+
+.dn-pill-dot {
+  position: relative;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--dn-accent);
+}
+
+.dn-pill-dot::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: var(--dn-accent);
+  animation: dnPing 2.2s ease-out infinite;
+}
+
+.dn-pill-more {
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: var(--dn-accent-soft);
+  color: var(--dn-ink);
+  font-family: var(--dn-font);
+  font-size: 11.5px;
+  font-weight: 700;
+}
+
+.dn-pill:focus-visible,
+.dn-close:focus-visible,
+.dn-cta:focus-visible {
+  outline: 2px solid var(--dn-brand);
+  outline-offset: 2px;
+}
+
+/* ---------- header ---------- */
+
+.dn-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 12px 10px 14px;
+}
+
+.dn-icon {
+  flex: 0 0 auto;
+  width: 32px;
+  height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--dn-accent-soft);
+  color: var(--dn-accent);
+}
+
+.dn-icon svg {
+  width: 17px;
+  height: 17px;
+}
+
+.dn-heading {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.dn-title {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: -0.1px;
+  line-height: 1.25;
+}
+
+.dn-subtitle {
+  margin: 2px 0 0;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.3;
+  color: var(--dn-muted);
+}
+
+.dn-close {
+  flex: 0 0 auto;
+  width: 26px;
+  height: 26px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--dn-muted);
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.dn-close svg {
+  width: 14px;
+  height: 14px;
+}
+
+.dn-close:hover {
+  background: #f5efe7;
+}
+
+/* ---------- body ---------- */
+
+.dn-body {
+  padding: 0 14px;
+}
+
+.dn-section {
+  padding: 10px 0;
+}
+
+.dn-section + .dn-section {
+  border-top: 1px dashed var(--dn-line);
+}
+
+.dn-section-title {
+  margin: 0 0 8px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--dn-brand);
+}
+
+/* closed rows */
+
+.dn-row {
+  display: flex;
+  gap: 10px;
+  padding: 3px 0;
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.dn-row-label {
+  flex: 0 0 74px;
+  color: var(--dn-muted);
+}
+
+.dn-row-value {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+/* doctors */
+
+.dn-doctor {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 4px 0;
+}
+
+.dn-doctor-name {
+  font-size: 13.5px;
+  font-weight: 700;
+}
+
+.dn-badge {
+  flex: 0 0 auto;
+  padding: 3px 9px;
+  border-radius: 999px;
+  font-family: var(--dn-font);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.dn-badge--leave {
+  background: #fdf3dd;
+  color: #8a5a05;
+}
+
+.dn-badge--ok {
+  background: #e6f2df;
+  color: #34502d;
+}
+
+/* medical / procedures: light lines, no heavy boxes */
+
+.dn-services {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.dn-service {
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 12.5px;
+  line-height: 1.35;
+  color: #3f5a37;
+}
+
+.dn-service-icon {
+  flex: 0 0 auto;
+  width: 24px;
+  height: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #eaf4e4;
+  color: #3f6b2f;
+}
+
+.dn-service-icon svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* ---------- footer ---------- */
+
+.dn-footer {
+  padding: 4px 14px 14px;
+}
+
+.dn-cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 36px;
+  padding: 0 14px;
+  border-radius: 999px;
+  background: var(--dn-ink);
+  color: #ffffff;
+  font-family: var(--dn-font);
+  font-size: 13px;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  transition: background 0.25s ease;
+}
+
+.dn-cta:hover {
+  background: var(--dn-brand);
+}
+
+.dn-hint {
+  margin: 0;
+  font-size: 13px;
+    color: var(--dn-muted);
+}
+
+/* ---------- animation ---------- */
+
+@keyframes dnPop {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes dnPing {
+  0% {
+    transform: scale(1);
+    opacity: 0.55;
+  }
+
+  80%,
+  100% {
+    transform: scale(2.6);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dn--side,
+  .dn-pill,
+  .dn-pill-dot::after {
+    animation: none;
+  }
+}
+
+/* ---------- mobile: box sits in the page flow, never covers content ---------- */
+
+@media (max-width: 700px) {
+  .dn--side,
+  .dn-pill {
+    position: static;
+    width: calc(100% - 24px);
+    max-width: none;
+    margin: 10px auto;
+    animation: none;
+  }
+
+  .dn-pill {
+    display: flex;
+    width: fit-content;
+    max-width: calc(100% - 24px);
+  }
+}
+
+/* ---------- short, compact side box so the hero photo stays clear ---------- */
+
+.dn--side .dn-header {
+  gap: 9px;
+  padding: 9px 8px 7px 12px;
+}
+
+.dn--side .dn-icon {
+  width: 28px;
+  height: 28px;
+}
+
+.dn--side .dn-icon svg {
+  width: 15px;
+  height: 15px;
+}
+
+.dn--side .dn-title {
+  font-size: 14px;
+}
+
+.dn--side .dn-subtitle {
+  font-size: 11.5px;
+}
+
+.dn--side .dn-body {
+  padding: 0 12px;
+}
+
+.dn--side .dn-section {
+  padding: 6px 0;
+}
+
+.dn--side .dn-section-title {
+  margin-bottom: 5px;
+  font-size: 11.5px;
+}
+
+.dn--side .dn-row {
+  padding: 2px 0;
+  font-size: 12.5px;
+  line-height: 1.35;
+}
+
+.dn--side .dn-row-label {
+  flex-basis: 66px;
+}
+
+.dn--side .dn-doctor {
+  padding: 2px 0;
+}
+
+.dn--side .dn-doctor-name {
+  font-size: 13px;
+}
+
+.dn--side .dn-services {
+  gap: 4px;
+}
+
+.dn--side .dn-service {
+  gap: 8px;
+  font-size: 12px;
+  line-height: 1.3;
+}
+
+.dn--side .dn-service-icon {
+  width: 22px;
+  height: 22px;
+}
+
+.dn--side .dn-service-icon svg {
+  width: 12px;
+  height: 12px;
+}
+
+.dn--side .dn-footer {
+  padding: 2px 12px 11px;
+}
+
+.dn--side .dn-cta {
+  min-height: 32px;
+  font-size: 12.5px;
+}
+
+/* ---------- leave dates under the doctor name ---------- */
+
+.dn-doctor-block + .dn-doctor-block,
+.dn-doctor-block + .dn-doctor {
+  margin-top: 6px;
+}
+
+.dn-leave-info {
+  margin: 2px 0 4px;
+  padding: 6px 10px;
+  border-radius: 10px;
+  background: #fdf8ec;
+}
+
+.dn--side .dn-leave-info .dn-row {
+  padding: 1px 0;
+  font-size: 12px;
+}
+
+.dn--side .dn-leave-info .dn-row-label {
+  flex-basis: 56px;
+}
+
+/* ---------- upcoming closures / leaves ---------- */
+
+.dn-upcoming {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.dn-upcoming-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  font-size: 12.5px;
+  line-height: 1.35;
+}
+
+.dn-upcoming-item strong {
+  display: block;
+  font-weight: 700;
+}
+
+.dn-upcoming-dot {
+  flex: 0 0 auto;
+  width: 8px;
+  height: 8px;
+  margin-top: 5px;
+  border-radius: 50%;
+  background: var(--dn-accent);
+}
+
+.dn-upcoming-date {
+  display: block;
+  color: var(--dn-muted);
+  font-weight: 500;
+}
+
+.dn-upcoming-reason {
+  display: block;
+  color: var(--dn-muted);
+  font-size: 12px;
+}
+/* Jab banner kuch nahi dikhata, wrapper bhi gayab */
+.notice-wrap:empty {
+  display: none;
+}
+
+@media (max-width: 700px) {
+  .notice-wrap {
+    display: flow-root;
+    background: #fdf1ec;
+  }
+
+  .notice-wrap .dn--side,
+  .notice-wrap .dn-pill {
+    margin: 8px auto;
+  }
+}

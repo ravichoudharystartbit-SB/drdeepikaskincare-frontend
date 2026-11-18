@@ -1,0 +1,1378 @@
+﻿/* =========================================================
+   PATIENT DIARY - modern / vibrant
+========================================================= */
+
+.patient-diary-page {
+  --pd-ink: #2a211d;
+  --pd-text: #4c3e36;
+  --pd-sub: #6f5e55;
+  --pd-brown: #806b58;
+  --pd-brown-deep: #59473d;
+  --pd-brown-dark: #59473d;
+  --pd-accent: #a87568;
+  --pd-accent-dark: #8a5a4d;
+  --pd-accent-soft: #f5e8e2;
+  --pd-tint: #eaded6;
+  --pd-line: #c0a593;
+  --pd-line-strong: #d7c0b3;
+  --pd-surface: #fffdfb;
+  --pd-surface-soft: #f8f1ee;
+  --pd-amber: #d29a4d;
+  --pd-amber-soft: #fff4d9;
+  --pd-blue: #4b7ed8;
+  --pd-blue-soft: #edf3ff;
+  --pd-green: #2f8a63;
+  --pd-green-soft: #eaf7ef;
+  --pd-red: #c76b60;
+  --pd-red-soft: #fdeae5;
+  --pd-shadow: 0 16px 32px rgba(42, 33, 29, 0.08);
+
+  width: 100%;
+  color: var(--pd-text);
+  font-family: "Segoe UI", system-ui, -apple-system, Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+.patient-diary-page *,
+.patient-diary-page *::before,
+.patient-diary-page *::after {
+  box-sizing: border-box;
+}
+
+.patient-diary-page button,
+.patient-diary-page input,
+.patient-diary-page select,
+.patient-diary-page textarea {
+  font-family: inherit;
+}
+
+.patient-diary-page h2,
+.patient-diary-page h3,
+.patient-diary-page h4,
+.patient-diary-page p {
+  font-family: inherit;
+}
+
+/* ---------- HEADER ---------- */
+
+.patient-diary-page .patient-diary-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 22px 26px;
+  margin-bottom: 18px;
+  border-radius: 22px;
+  color: #fff;
+  background: linear-gradient(135deg, #2d241f 0%, #604a3d 42%, #987865 100%);
+  box-shadow: 0 14px 28px rgba(77, 58, 48, 0.2);
+}
+
+.patient-diary-page .patient-diary-eyebrow {
+  display: inline-block;
+  margin-bottom: 6px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.16);
+  color: #f3d9cb;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+}
+
+.patient-diary-page .patient-diary-header h2 {
+  margin: 0;
+  color: #fff;
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+
+.patient-diary-page .patient-diary-header p {
+  margin: 4px 0 0;
+  color: #ead9cf;
+  font-size: 13px;
+}
+
+.patient-diary-page .patient-diary-add-btn {
+  height: 46px;
+  padding: 0 22px;
+  border: 0;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #f1d1c3, #d89078);
+  color: #352822;
+  font-size: 14px;
+  font-weight: 800;
+  white-space: nowrap;
+  cursor: pointer;
+  box-shadow: 0 8px 18px rgba(170, 117, 98, 0.28);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+.patient-diary-page .patient-diary-add-btn:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.02);
+  box-shadow: 0 12px 22px rgba(170, 117, 98, 0.34);
+}
+
+.patient-diary-page .patient-diary-add-btn:active {
+  transform: translateY(0);
+}
+
+/* ---------- FILTERS ---------- */
+
+.patient-diary-page .patient-diary-filter-card {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  padding: 16px;
+  margin-bottom: 18px;
+  background: linear-gradient(180deg, #fffdfc 0%, #f9f2ee 100%);
+  border: 1px solid var(--pd-line);
+  border-radius: 18px;
+  box-shadow: 0 8px 18px rgba(92, 62, 52, 0.06);
+}
+
+.patient-diary-page .patient-diary-filter-field {
+  min-width: 0;
+}
+
+.patient-diary-page input,
+.patient-diary-page select,
+.patient-diary-page textarea {
+  font-size: 14px;
+}
+
+.patient-diary-page .patient-diary-filter-field input,
+.patient-diary-page .patient-diary-filter-field select,
+.patient-diary-page .patient-diary-form-group input,
+.patient-diary-page .patient-diary-form-group select,
+.patient-diary-page .patient-diary-form-group textarea {
+  width: 100%;
+  height: 42px;
+  padding: 0 14px;
+  border: 1.5px solid var(--pd-line-strong);
+  border-radius: 10px;
+  background-color: #fff;
+  color: var(--pd-ink);
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.patient-diary-page .patient-diary-form-group textarea {
+  height: auto;
+  min-height: 90px;
+  padding: 11px 14px;
+  line-height: 1.5;
+  resize: vertical;
+}
+
+.patient-diary-page input::placeholder,
+.patient-diary-page textarea::placeholder {
+  color: #a8978d;
+}
+
+.patient-diary-page .patient-diary-filter-field input:hover,
+.patient-diary-page .patient-diary-filter-field select:hover,
+.patient-diary-page .patient-diary-form-group input:hover,
+.patient-diary-page .patient-diary-form-group select:hover,
+.patient-diary-page .patient-diary-form-group textarea:hover {
+  border-color: #b9a091;
+}
+
+.patient-diary-page .patient-diary-filter-field input:focus,
+.patient-diary-page .patient-diary-filter-field select:focus,
+.patient-diary-page .patient-diary-form-group input:focus,
+.patient-diary-page .patient-diary-form-group select:focus,
+.patient-diary-page .patient-diary-form-group textarea:focus {
+  border-color: var(--pd-accent);
+  box-shadow: 0 0 0 4px rgba(176, 112, 90, 0.16);
+}
+
+.patient-diary-page select {
+  -webkit-appearance: none;
+  appearance: none;
+  padding-right: 36px;
+  text-overflow: ellipsis;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none' stroke='%237a5c48' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'><path d='M5 8l5 5 5-5'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 13px center;
+  background-size: 14px;
+}
+
+/* ---------- SUMMARY CARDS ---------- */
+
+.patient-diary-page .diary-summary {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.patient-diary-page .diary-summary-card {
+  position: relative;
+  overflow: hidden;
+  min-height: 88px;
+  padding: 12px 14px 12px;
+  border: 1.5px solid #e0c7b1;
+  border-radius: 12px;
+  background: linear-gradient(180deg, #fffdfb 0%, #f7f0eb 100%);
+  box-shadow: 0 2px 8px rgba(66, 49, 41, 0.04);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.patient-diary-page .diary-summary-card::before {
+  content: "";
+  position: absolute;
+  left: 12px;
+  top: 10px;
+  bottom: 10px;
+  width: 4px;
+  border-radius: 999px;
+  background: #8d6c55;
+}
+
+.patient-diary-page .diary-summary-card::after {
+  content: "";
+  position: absolute;
+  right: -18px;
+  top: -18px;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: rgba(141, 108, 85, 0.05);
+}
+
+.patient-diary-page .diary-summary-card:hover {
+  transform: translateY(-1px);
+  border-color: #c9a788;
+  box-shadow: 0 6px 14px rgba(66, 49, 41, 0.05);
+}
+
+.patient-diary-page .diary-summary-card > div {
+  position: relative;
+  z-index: 1;
+  padding-left: 10px;
+}
+
+.patient-diary-page .diary-summary-card span {
+  display: block;
+  margin-bottom: 5px;
+  color: #6d574e;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.patient-diary-page .diary-summary-card strong {
+  display: block;
+  color: #2b231f;
+  font-size: 26px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.patient-diary-page .diary-summary-card.pending {
+  background: linear-gradient(180deg, #fffdf9 0%, #fff2d6 100%);
+  border-color: #e8c98e;
+}
+.patient-diary-page .diary-summary-card.pending::before,
+.patient-diary-page .diary-summary-card.pending::after { background: #d49a42; }
+.patient-diary-page .diary-summary-card.pending strong { color: #8b5d14; }
+
+.patient-diary-page .diary-summary-card.upcoming {
+  background: linear-gradient(180deg, #fffdfd 0%, #edf4ff 100%);
+  border-color: #cedeff;
+}
+.patient-diary-page .diary-summary-card.upcoming::before,
+.patient-diary-page .diary-summary-card.upcoming::after { background: #5d8fe8; }
+.patient-diary-page .diary-summary-card.upcoming strong { color: #1f4bbb; }
+
+.patient-diary-page .diary-summary-card.completed {
+  background: linear-gradient(180deg, #fffdfd 0%, #edf9f2 100%);
+  border-color: #d1e9d9;
+}
+.patient-diary-page .diary-summary-card.completed::before,
+.patient-diary-page .diary-summary-card.completed::after { background: #43a56c; }
+.patient-diary-page .diary-summary-card.completed strong { color: #1d7047; }
+
+/* ---------- LAYOUT ---------- */
+
+.patient-diary-page .patient-diary-content {
+  display: grid;
+  grid-template-columns: minmax(0, 1.9fr) minmax(0, 1fr);
+  gap: 18px;
+  align-items: start;
+}
+
+.patient-diary-page .patient-diary-calendar-card,
+.patient-diary-page .patient-diary-list-card {
+  min-width: 0;
+  padding: 20px;
+  background: linear-gradient(180deg, #fffdfc 0%, #f9f3ee 100%);
+  border: 1px solid var(--pd-line);
+  border-radius: 20px;
+  box-shadow: 0 10px 24px rgba(80, 50, 40, 0.06);
+}
+
+/* ---------- CALENDAR ---------- */
+
+.patient-diary-page .patient-diary-calendar-header {
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr) 34px;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.patient-diary-page .patient-diary-calendar-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.patient-diary-page .patient-diary-calendar-header h3 {
+  margin: 0;
+  color: var(--pd-ink);
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.patient-diary-page .patient-diary-nav-btn,
+.patient-diary-page .patient-diary-today-btn {
+  border: 1px solid var(--pd-line-strong);
+  background: #fff;
+  color: var(--pd-brown-deep);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.patient-diary-page .patient-diary-nav-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  border-radius: 10px;
+  font-size: 22px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.patient-diary-page .patient-diary-today-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 32px;
+  padding: 0 12px;
+  border-radius: 999px;
+  background: var(--pd-brown);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.patient-diary-page .patient-diary-nav-btn:hover,
+.patient-diary-page .patient-diary-today-btn:hover {
+  transform: translateY(-1px);
+  border-color: var(--pd-brown);
+  background: var(--pd-brown);
+  color: #fff;
+}
+
+.patient-diary-page .patient-diary-weekdays,
+.patient-diary-page .patient-diary-calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 6px;
+}
+
+.patient-diary-page .patient-diary-weekdays {
+  margin-bottom: 8px;
+}
+
+.patient-diary-page .patient-diary-weekdays span {
+  padding: 7px 0 6px;
+  border-radius: 10px;
+  background: linear-gradient(180deg, #f8f0ec 0%, #f4e7e0 100%);
+  border: 1px solid #8f8681;
+  color: var(--pd-brown-deep);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.patient-diary-page .patient-diary-weekdays span:first-child {
+  color: var(--pd-red);
+}
+
+.patient-diary-page .patient-diary-empty-day {
+  min-height: 92px;
+}
+
+/* Calendar grid rows ek jaisi height lein, festival wali row apne aap badh jaati hai */
+.patient-diary-page .patient-diary-calendar-grid {
+  grid-auto-rows: minmax(92px, auto);
+}
+
+.patient-diary-page .patient-diary-day {
+  position: relative;
+  min-width: 0;
+  min-height: 92px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  padding: 8px 5px;
+  overflow: hidden;
+  background: linear-gradient(180deg, #fff 0%, #fdf6f2 100%);
+  border: 2px solid var(--pd-line);
+  border-radius: 14px;
+  color: var(--pd-ink);
+  text-align: left;
+  cursor: pointer;
+  outline: none;
+  transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+
+.patient-diary-page .patient-diary-day > span:first-child {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.patient-diary-page .patient-diary-day:hover {
+  transform: translateY(-2px);
+  border-color: var(--pd-accent);
+  box-shadow: 0 6px 14px rgba(176, 112, 90, 0.2);
+}
+
+.patient-diary-page .patient-diary-day:focus-visible {
+  box-shadow: 0 0 0 3px rgba(176, 112, 90, 0.4);
+}
+
+.patient-diary-page .patient-diary-day.sun > span:first-child {
+  color: var(--pd-red);
+}
+
+/* ---------- FESTIVAL / HOLIDAY (single clean block) ---------- */
+
+.patient-diary-page .patient-diary-day.holiday {
+  background: linear-gradient(180deg, #fdf0ec 0%, #f6d9cf 100%);
+  border: 1.5px solid #d9a08c;
+  box-shadow: 0 2px 6px rgba(168, 117, 104, 0.14);
+}
+
+.patient-diary-page .patient-diary-day.holiday:hover {
+  border-color: var(--pd-accent);
+  box-shadow: 0 6px 14px rgba(168, 117, 104, 0.3);
+}
+
+.patient-diary-page .patient-diary-day.holiday > span:first-child {
+  color: #8a3f2e;
+}
+
+.patient-diary-page .patient-diary-day.holiday.today {
+  border: 2px solid var(--pd-brown-deep);
+}
+
+.patient-diary-page .holiday-label1 {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 3px 4px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid #e3b8a8;
+  color: #6b2f22;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: 0;
+  text-align: left;
+  white-space: normal;
+  overflow: visible;
+  text-overflow: clip;
+  word-break: normal;
+  overflow-wrap: break-word;
+  hyphens: none;
+  cursor: help;
+}
+
+/* ---------- TODAY ---------- */
+
+.patient-diary-page .patient-diary-day.today {
+  border: 2px solid rgba(94, 70, 59, 0.85);
+  background: linear-gradient(180deg, #fff 0%, #faf6f3 100%);
+  box-shadow: inset 0 0 0 1px rgba(128, 107, 88, 0.1);
+}
+
+.patient-diary-page .patient-diary-day.today > span:first-child {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 24px;
+  height: 24px;
+  padding: 0 5px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #a87568, #806b58);
+  color: #fff;
+  box-shadow: 0 4px 10px rgba(128, 107, 88, 0.22);
+}
+
+/* Today + festival: festival ka halka background hi rahe */
+.patient-diary-page .patient-diary-day.holiday.today {
+  background: linear-gradient(180deg, #fdf0ec 0%, #f6d9cf 100%);
+  border: 2px solid var(--pd-brown-deep);
+  box-shadow: 0 2px 6px rgba(168, 117, 104, 0.14);
+}
+
+.patient-diary-page .patient-diary-day.holiday.today > span:first-child {
+  color: #fff;
+}
+
+/* ---------- SELECTED ---------- */
+
+.patient-diary-page .patient-diary-day.selected {
+  background: linear-gradient(135deg, #7f6556 0%, #604a3d 100%);
+  border-color: transparent;
+  box-shadow: 0 14px 22px rgba(96, 74, 59, 0.22);
+  color: #fff;
+}
+
+.patient-diary-page .patient-diary-day.selected > span:first-child {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.18);
+}
+
+.patient-diary-page .patient-diary-day.selected.today {
+  background: linear-gradient(135deg, #806b58 0%, #684f3d 100%);
+  border-color: transparent;
+}
+
+.patient-diary-page .patient-diary-day.selected.today > span:first-child {
+  background: rgba(255, 255, 255, 0.14);
+  box-shadow: none;
+}
+
+.patient-diary-page .patient-diary-day.selected.holiday,
+.patient-diary-page .patient-diary-day.selected.holiday.today {
+  background: linear-gradient(145deg, #7a5c48, #4f3a2d);
+  border-color: transparent;
+  box-shadow: 0 8px 18px rgba(79, 58, 45, 0.45);
+}
+
+.patient-diary-page .patient-diary-day.selected.holiday > span:first-child,
+.patient-diary-page .patient-diary-day.selected.holiday.today > span:first-child {
+  background: rgba(255, 255, 255, 0.14);
+  color: #fff;
+}
+
+.patient-diary-page .patient-diary-day.selected .holiday-label1 {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.3);
+  color: #fbe3d8;
+}
+
+/* ---------- APPOINTMENT COUNT ---------- */
+
+.patient-diary-page .appointment-count {
+  position: absolute;
+  top: 7px;
+  right: 7px;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #d98a6f, #b0705a);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 800;
+  line-height: 1;
+  box-shadow: 0 2px 6px rgba(176, 112, 90, 0.5);
+}
+
+.patient-diary-page .patient-diary-day.selected .appointment-count {
+  background: #fff;
+  color: var(--pd-brown-dark);
+}
+
+/* ---------- LIST ---------- */
+
+.patient-diary-page .patient-diary-list-card {
+  display: flex;
+  flex-direction: column;
+  max-height: 700px;
+  background: #fffaf8;
+}
+
+.patient-diary-page .patient-diary-list-header {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+  padding-bottom: 14px;
+  margin-bottom: 14px;
+  border-bottom: 2px solid var(--pd-tint);
+}
+
+.patient-diary-page .patient-diary-list-header h3 {
+  margin: 0;
+  color: var(--pd-ink);
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.patient-diary-page .patient-diary-list-header p {
+  margin: 3px 0 0;
+  color: var(--pd-accent-dark);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.patient-diary-page .holiday-chip {
+  padding: 5px 11px;
+  border-radius: 999px;
+  background: #ffedc2;
+  border: 1px solid #f2cf85;
+  color: #92400e;
+  font-size: 11.5px;
+  font-weight: 700;
+  max-width: 55%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.patient-diary-page .patient-diary-list {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-right: 4px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #cfae9c transparent;
+}
+
+.patient-diary-page .patient-diary-list::-webkit-scrollbar { width: 6px; }
+.patient-diary-page .patient-diary-list::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: #cfae9c;
+}
+
+/* ---------- EMPTY STATE ---------- */
+
+.patient-diary-page .patient-diary-empty-state {
+  padding: 36px 18px;
+  border: 2px dashed #dcc5b9;
+  border-radius: 16px;
+  background: linear-gradient(180deg, #fffaf7, #fbf1ec);
+  text-align: center;
+}
+
+.patient-diary-page .patient-diary-empty-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 6px 16px rgba(80, 50, 40, 0.12);
+  font-size: 30px;
+}
+
+.patient-diary-page .patient-diary-empty-state h4 {
+  margin: 0 0 4px;
+  color: var(--pd-ink);
+  font-size: 17px;
+  font-weight: 800;
+}
+
+.patient-diary-page .patient-diary-empty-state p {
+  margin: 0 0 16px;
+  color: var(--pd-sub);
+  font-size: 13px;
+}
+
+.patient-diary-page .patient-diary-empty-state button {
+  height: 40px;
+  padding: 0 20px;
+  border: 0;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #7a5c48, #4f3a2d);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 6px 14px rgba(79, 58, 45, 0.35);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.patient-diary-page .patient-diary-empty-state button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(79, 58, 45, 0.45);
+}
+
+/* ---------- FOLLOW-UP CARD ---------- */
+
+.patient-diary-page .patient-diary-followup-card {
+  display: flex;
+  flex: 0 0 auto;
+  width: 100%;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 12px 12px 10px;
+  background: #f5efe9;
+  border: 1.5px solid var(--pd-brown-deep);
+  border-radius: 14px;
+  box-shadow: 0 2px 8px rgba(75, 55, 46, 0.06);
+  transition: border-color 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.patient-diary-page .patient-diary-followup-card:hover {
+  transform: translateY(-1px);
+  border-color: var(--pd-brown);
+  box-shadow: 0 6px 12px rgba(75, 55, 46, 0.06);
+}
+
+.patient-diary-page .patient-diary-followup-card.pending { border-color: #9a6030; }
+.patient-diary-page .patient-diary-followup-card.upcoming { border-color: #446ec2; }
+.patient-diary-page .patient-diary-followup-card.completed { border-color: #2d7a5a; }
+.patient-diary-page .patient-diary-followup-card.ignored {
+  border-color: #6f625d;
+  background: #f4f4f2;
+}
+
+.patient-diary-page .patient-diary-patient-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  padding: 0 2px;
+}
+
+.patient-diary-page .patient-diary-avatar {
+  width: 34px;
+  height: 34px;
+  flex: 0 0 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #d9b9a5, #b9826d);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  box-shadow: inset 0 0 0 1px rgba(80, 56, 46, 0.06);
+}
+
+.patient-diary-page .patient-diary-patient-info h4 {
+  margin: 0;
+  color: var(--pd-ink);
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.2;
+  overflow-wrap: anywhere;
+}
+
+.patient-diary-page .patient-diary-patient-info p {
+  margin: 2px 0 0;
+  color: var(--pd-sub);
+  font-size: 12px;
+  line-height: 1.3;
+}
+
+.patient-diary-page .patient-diary-followup-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.patient-diary-page .patient-diary-followup-date {
+  margin: 8px 0 0;
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+  color: #362d2a;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.patient-diary-page .patient-diary-status {
+  display: flex;
+  margin-top: 8px;
+}
+
+.patient-diary-page .diary-status-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 26px;
+  padding: 5px 10px;
+  border-radius: 8px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.patient-diary-page .diary-status-badge.pending { background: #fef3c7; color: #92400e; }
+.patient-diary-page .diary-status-badge.upcoming { background: #dfeeff; color: #1f5bc8; }
+.patient-diary-page .diary-status-badge.completed { background: #dff7eb; color: #167a49; }
+.patient-diary-page .diary-status-badge.ignored { background: #e5e7eb !important; color: #4b5563 !important; }
+
+.patient-diary-page .patient-diary-details {
+  display: grid;
+  gap: 7px;
+  margin-top: 10px;
+  padding: 10px 10px 8px;
+  border-radius: 10px;
+  background: #f3eee9;
+  border: 1px solid #e7d9cf;
+}
+
+.patient-diary-page .patient-diary-details > div {
+  min-width: 0;
+}
+
+.patient-diary-page .patient-diary-details span {
+  display: block;
+  color: #6a534d;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.patient-diary-page .patient-diary-details strong {
+  display: block;
+  margin-top: 2px;
+  color: #433b37;
+  font-size: 12.5px;
+  font-weight: 600;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+
+/* ---------- ACTION BUTTONS ---------- */
+
+.patient-diary-page .patient-diary-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid #e7d9cf;
+}
+
+.patient-diary-page .patient-diary-actions button {
+  height: 30px;
+  padding: 0 11px;
+  border: 1.5px solid #c79a7a;
+  border-radius: 8px;
+  font-size: 11.5px;
+  font-weight: 700;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all 0.18s ease;
+  box-shadow: 0 1px 0 rgba(77, 58, 49, 0.05);
+}
+
+.patient-diary-page .patient-diary-actions button:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(58, 42, 34, 0.05);
+}
+
+.patient-diary-page .patient-diary-actions button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.patient-diary-page .diary-reminder-btn {
+  background: #f3ecff;
+  border-color: #c7b1ff;
+  color: #4e3e8d;
+}
+.patient-diary-page .diary-reminder-btn:hover:not(:disabled) { background: #e7dcff; border-color: #9f86eb; color: #3f2c7a; }
+
+.patient-diary-page .diary-complete-btn {
+  background: #edf9f1;
+  border-color: #afd8b9;
+  color: #1e724a;
+}
+.patient-diary-page .diary-complete-btn:hover:not(:disabled) { background: #e5f7eb; border-color: #80bd98; color: #175e3e; }
+
+.patient-diary-page .diary-edit-btn {
+  background: #fff;
+  border-color: #cdab8e;
+  color: var(--pd-brown-dark);
+}
+.patient-diary-page .diary-edit-btn:hover:not(:disabled) { background: #f7efe9; border-color: #b68767; color: #473a33; }
+
+.patient-diary-page .diary-delete-btn {
+  background: #fff1f1;
+  border-color: #e7a8a5;
+  color: #ab4141;
+}
+.patient-diary-page .diary-delete-btn:hover:not(:disabled) { background: #ffe7e3; border-color: #d26d67; color: #8e2d30; }
+
+/* ---------- MODAL ---------- */
+
+.patient-diary-page .patient-diary-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 999999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  background: rgba(30, 20, 15, 0.6);
+}
+
+.patient-diary-page .patient-diary-modal {
+  display: flex;
+  flex-direction: column;
+  width: min(660px, 100%);
+  max-height: calc(100vh - 32px);
+  overflow: hidden;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 30px 70px rgba(30, 15, 10, 0.45);
+  animation: pdModalIn 0.22s ease;
+}
+
+@supports (height: 100dvh) {
+  .patient-diary-page .patient-diary-modal {
+    max-height: calc(100dvh - 32px);
+  }
+}
+
+@keyframes pdModalIn {
+  from { opacity: 0; transform: translateY(14px) scale(0.98); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes pdSheetIn {
+  from { transform: translateY(40px); opacity: 0; }
+  to { transform: none; opacity: 1; }
+}
+
+.patient-diary-page .patient-diary-modal-header {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 20px 24px;
+  color: #fff;
+  background: linear-gradient(120deg, #2b211c 0%, #5a4033 60%, #8b6a55 100%);
+}
+
+.patient-diary-page .patient-diary-modal-header h3 {
+  margin: 0;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.patient-diary-page .patient-diary-modal-header p {
+  margin: 3px 0 0;
+  color: #ead9cf;
+  font-size: 13px;
+}
+
+.patient-diary-page .patient-diary-close-btn {
+  width: 36px;
+  height: 36px;
+  flex: 0 0 36px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.18);
+  color: #fff;
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.patient-diary-page .patient-diary-close-btn:hover {
+  background: #fff;
+  color: var(--pd-brown-dark);
+  transform: rotate(90deg);
+}
+
+/* form = scrollable body + sticky footer */
+.patient-diary-page .patient-diary-modal form {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 22px 24px 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.patient-diary-page .patient-diary-modal-body {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.patient-diary-page .patient-diary-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.patient-diary-page .patient-diary-form-group.full,
+.patient-diary-page .patient-diary-form-group-full {
+  grid-column: 1 / -1;
+}
+
+.patient-diary-page .patient-diary-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.patient-diary-page .patient-diary-form-group label,
+.patient-diary-page .patient-diary-quick-date > label {
+  color: var(--pd-brown-dark);
+  font-size: 11.5px;
+  font-weight: 800;
+  letter-spacing: 0.7px;
+  text-transform: uppercase;
+}
+
+.patient-diary-page .patient-diary-quick-date {
+  padding: 14px;
+  border-radius: 12px;
+  background: #faf4f0;
+  border: 1px solid #f0e3da;
+}
+
+.patient-diary-page .quick-date-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.patient-diary-page .quick-date-actions button {
+  height: 34px;
+  padding: 0 16px;
+  border: 1.5px solid var(--pd-line-strong);
+  border-radius: 999px;
+  background: #fff;
+  color: var(--pd-brown-dark);
+  font-size: 12.5px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.patient-diary-page .quick-date-actions button:hover {
+  background: var(--pd-accent);
+  border-color: var(--pd-accent);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+.patient-diary-page .patient-diary-modal-actions {
+  position: sticky;
+  bottom: 0;
+  z-index: 2;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin: 4px -24px 0;
+  padding: 14px 24px 18px;
+  background: #fff;
+  border-top: 1px solid var(--pd-line);
+}
+
+.patient-diary-page .patient-diary-modal-actions button {
+  height: 42px;
+  min-width: 110px;
+  padding: 0 22px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.patient-diary-page .patient-diary-modal-actions button[type="button"] {
+  border: 1.5px solid var(--pd-line-strong);
+  background: #fff;
+  color: var(--pd-text);
+}
+
+.patient-diary-page .patient-diary-modal-actions button[type="button"]:hover:not(:disabled) {
+  background: #f6ece6;
+}
+
+.patient-diary-page .patient-diary-modal-actions button[type="submit"] {
+  border: 0;
+  background: linear-gradient(135deg, #7a5c48, #4f3a2d);
+  color: #fff;
+  box-shadow: 0 6px 14px rgba(79, 58, 45, 0.35);
+}
+
+.patient-diary-page .patient-diary-modal-actions button[type="submit"]:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 20px rgba(79, 58, 45, 0.45);
+}
+
+.patient-diary-page .patient-diary-modal-actions button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+/* ---------- FOCUS ---------- */
+
+.patient-diary-page button:focus-visible {
+  outline: 3px solid rgba(176, 112, 90, 0.5);
+  outline-offset: 2px;
+}
+
+/* ---------- TOAST ---------- */
+
+.Toastify__toast-container {
+  z-index: 9999999 !important;
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1100px) {
+  .patient-diary-page .patient-diary-filter-card {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .patient-diary-page .patient-diary-content {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .patient-diary-page .patient-diary-list-card {
+    max-height: none;
+  }
+
+  .patient-diary-page .patient-diary-list {
+    overflow: visible;
+  }
+}
+
+@media (max-width: 700px) {
+  .patient-diary-page .patient-diary-header {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 18px;
+    border-radius: 16px;
+  }
+
+  .patient-diary-page .patient-diary-header h2 {
+    font-size: 22px;
+  }
+
+  .patient-diary-page .patient-diary-add-btn {
+    width: 100%;
+  }
+
+  .patient-diary-page .patient-diary-filter-card {
+    grid-template-columns: minmax(0, 1fr);
+    padding: 12px;
+  }
+
+  .patient-diary-page .diary-summary {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .patient-diary-page .diary-summary-card {
+    padding: 14px 14px 14px 16px;
+  }
+
+  .patient-diary-page .diary-summary-card strong {
+    font-size: 28px;
+  }
+
+  .patient-diary-page .patient-diary-calendar-card,
+  .patient-diary-page .patient-diary-list-card {
+    padding: 14px;
+    border-radius: 14px;
+  }
+
+  .patient-diary-page .patient-diary-weekdays,
+  .patient-diary-page .patient-diary-calendar-grid {
+    gap: 4px;
+  }
+
+  .patient-diary-page .patient-diary-calendar-grid {
+    grid-auto-rows: minmax(50px, auto);
+  }
+
+  .patient-diary-page .patient-diary-weekdays span {
+    padding: 5px 0;
+    font-size: 10px;
+    letter-spacing: 0;
+  }
+
+  .patient-diary-page .patient-diary-day,
+  .patient-diary-page .patient-diary-empty-day {
+    min-height: 50px;
+  }
+
+  .patient-diary-page .patient-diary-day {
+    align-items: center;
+    gap: 3px;
+    padding: 6px 2px 4px;
+    border-radius: 9px;
+  }
+
+  .patient-diary-page .patient-diary-day > span:first-child {
+    font-size: 13px;
+  }
+
+  /* Mobile: jagah kam hai, isliye festival ka sirf chhota dot */
+  .patient-diary-page .holiday-label1 {
+    width: 6px;
+    height: 6px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: #b0705a;
+    font-size: 0;
+    overflow: hidden;
+  }
+
+  .patient-diary-page .patient-diary-day.selected .holiday-label1 {
+    background: #fbe3d8;
+  }
+
+  .patient-diary-page .appointment-count {
+    top: 2px;
+    right: 2px;
+    min-width: 16px;
+    height: 16px;
+    padding: 0 4px;
+    font-size: 9.5px;
+  }
+
+  .patient-diary-page .patient-diary-actions button {
+    flex: 1 1 calc(50% - 8px);
+    padding: 0 8px;
+  }
+
+  .patient-diary-page .patient-diary-modal-overlay {
+    align-items: flex-end;
+    padding: 0;
+  }
+
+  .patient-diary-page .patient-diary-modal {
+    width: 100%;
+    max-height: 94vh;
+    border-radius: 20px 20px 0 0;
+    animation: pdSheetIn 0.25s ease;
+  }
+
+  @supports (height: 100dvh) {
+    .patient-diary-page .patient-diary-modal {
+      max-height: 94dvh;
+    }
+  }
+
+  .patient-diary-page .patient-diary-modal-header {
+    padding: 16px 18px;
+  }
+
+  .patient-diary-page .patient-diary-modal form {
+    padding: 18px 18px 0;
+  }
+
+  .patient-diary-page .patient-diary-form-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 14px;
+  }
+
+  .patient-diary-page .patient-diary-modal-actions {
+    margin: 4px -18px 0;
+    padding: 12px 18px 16px;
+  }
+
+  .patient-diary-page .patient-diary-modal-actions button {
+    flex: 1;
+    min-width: 0;
+  }
+}
+
+@media (max-width: 380px) {
+  .patient-diary-page .patient-diary-day,
+  .patient-diary-page .patient-diary-empty-day {
+    min-height: 44px;
+  }
+
+  .patient-diary-page .patient-diary-calendar-grid {
+    grid-auto-rows: minmax(44px, auto);
+  }
+
+  .patient-diary-page .patient-diary-day > span:first-child {
+    font-size: 12px;
+  }
+
+  .patient-diary-page .patient-diary-actions button {
+    flex: 1 1 100%;
+  }
+
+  .patient-diary-page .diary-summary-card strong {
+    font-size: 24px;
+  }
+}
+/* Festival day background */
+.patient-diary-day:has(.holiday-label1) {
+  background: #c9b39f;
+  border: 1px solid #6e6658;
+}
