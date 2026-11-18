@@ -1,5 +1,4 @@
-import "../css/GstCard.css";
-
+import "../css/Gstcard.css";
 function GstCard() {
   return (
     <div className="gst-wrap">
